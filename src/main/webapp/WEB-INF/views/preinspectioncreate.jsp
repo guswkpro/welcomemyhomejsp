@@ -19,42 +19,25 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/nav.css" />
-<link rel="stylesheet" type="text/css" href="css/estimate.css" />
+<link rel="stylesheet" type="text/css" href="css/preinspectionCreate.css" />
 
 <title>놀러와 마이홈</title>
 </head>
-
-<body cellpadding="0" cellspacing="0" marginleft="0" margintop="0"
-	width="100%" height="100%">
-	<div class="container estimate-div">
+<body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%">
+	<div class="container preinspectionCreate-div">
 		<table class="table table-bordered">
 			<tbody>
 				<form>
 					<tr>
-						<th>제목</th>
-						<td><input type="text" placeholder="제목을 입력하세요. "
-							class="form-control"/></td>
-					</tr>
-					<tr>
-						<th>주소</th>
-						<td><input type="text" placeholder="주소를 입력하세요. "
-							class="form-control"/></td>
-					</tr>
-					<tr>
-						<th>사진</th>
+						<th>도면 추가</th>
 						<td><input id='fileselector' type="file"
-							placeholder="이미지를 선택하세요." accept="image/*" multiple /></td>
+							placeholder="이미지를 선택하세요." accept="image/*"/></td>
 					</tr>
 					<tr>
-						<th>내용</th>
-						<td><textarea cols="10" rows="10" placeholder="내용을 입력하세요."
-								class="form-control"></textarea></td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<input type="button" value="취소" class="estimate-float-right" onclick="location.href = 'http://127.0.0.1:8080/estimatelist'"/> 
-							<input type="button" value="등록" class="estimate-float-right" onclick="location.href = 'http://127.0.0.1:8080/estimatelist'"/>
-						</td>
+						<td colspan="2"><input type="button" value="취소" 
+							class="preinspectionCreate-float-right" onclick="location.href = 'http://127.0.0.1:8080/preinspection'"/> 
+							<input type="button"
+							value="등록" class="preinspectionCreate-float-right" onclick="location.href = 'http://127.0.0.1:8080/preinspection'"/></td>
 					</tr>
 				</form>
 			</tbody>
@@ -74,7 +57,7 @@
 				<li class="nav-item nav-li"><a class="nav-a-text4"
 					href='http://127.0.0.1:8080/preinspection'>사전점검</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4"
-					href='http://127.0.0.1:8080/estimatelist'>견적요청</a></li>
+					href='http://127.0.0.1:8080/estimatelist?offset=0'>견적요청</a></li>
 			</ul>
 		</div>
 		<div class="nav-div-form">
@@ -88,5 +71,4 @@
 			</form>
 		</div>
 	</nav>
-</body>
 </html>
