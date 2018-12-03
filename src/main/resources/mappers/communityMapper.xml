@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.mapper.UserMapper">
-	<select id="selectUser" resultType="UserVO">
+<mapper namespace="com.example.mapper.CommunityMapper">
+	<select id="selectCommunity" resultType="CommunityVO">
 		SELECT * FROM
-		stweb.stweb_users where user_id = #{user_id}
+		stweb.stweb_communities where user_id = #{user_id}
 	</select>
 </mapper>

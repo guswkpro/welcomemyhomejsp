@@ -6,5 +6,5 @@ import com.welcomemyhome.project.VO.UserVO;
 
 public interface UserDAO {
 
-	public List<UserVO> selectUser() throws Exception;
+	public List<UserVO> selectUser(String id) throws Exception;
 }

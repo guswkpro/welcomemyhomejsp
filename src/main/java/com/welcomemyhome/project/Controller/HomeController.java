@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.welcomemyhome.project.Service.UserService;
 import com.welcomemyhome.project.VO.UserVO;
@@ -38,11 +39,11 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) throws Exception {
+	public String home(Locale locale, Model model, @RequestParam String user_id) throws Exception {
 
 		logger.info("home");
 
-		List<UserVO> UserList = service.selectUser();
+		List<UserVO> UserList = service.selectUser(user_id);
 
 		model.addAttribute("UserList", UserList);
 

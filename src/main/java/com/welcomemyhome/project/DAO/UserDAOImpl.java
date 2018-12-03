@@ -1,6 +1,8 @@
 package com.welcomemyhome.project.DAO;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -18,9 +20,10 @@ public class UserDAOImpl implements UserDAO {
 	private static final String Namespace = "com.example.mapper.UserMapper";
 
 	@Override
-	public List<UserVO> selectUser() throws Exception {
-
-		return sqlSession.selectList(Namespace + ".selectUser");
+	public List<UserVO> selectUser(String id) throws Exception {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("user_id", id);
+		return sqlSession.selectList(Namespace + ".selectUser", parameters);
 	}
 
 }

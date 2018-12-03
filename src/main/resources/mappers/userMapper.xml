@@ -5,6 +5,7 @@
 
 <mapper namespace="com.example.mapper.UserMapper">
 	<select id="selectUser" resultType="UserVO">
-		SELECT * FROM stweb.stweb_users
+		SELECT * FROM
+		stweb.stweb_users where user_id = #{user_id}
 	</select>
 </mapper>
