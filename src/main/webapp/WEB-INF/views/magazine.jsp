@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +9,10 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.css" >
+<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-theme.css" >
+<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 
 
 <title>놀러와마이홈 - 매거진</title>
