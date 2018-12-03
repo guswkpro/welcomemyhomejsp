@@ -33,6 +33,9 @@
 
 	<resources location="WEB-INF/views/css/, classpath=/css/"
 		mapping="/css/**" />
+		
+	<resources location="WEB-INF/views/bootstrap/, classpath=/bootstrap/"
+		mapping="/bootstrap/**" />
 
 	<resources
 		location="WEB-INF/views/script/, classpath=/script/"
