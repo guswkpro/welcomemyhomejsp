@@ -24,9 +24,9 @@ public class CommunityController {
 	private CommunityService service;
 	
 	@RequestMapping(value = "/community", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, @RequestParam int offset) throws Exception {
+	public String community(Locale locale, Model model, @RequestParam int offset) throws Exception {
 
-		logger.info("home");
+		logger.info("community");
 
 		List<CommunityVO> CommunityList = service.selectCommunity(offset);
 

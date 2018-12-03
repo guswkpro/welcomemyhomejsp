@@ -6,6 +6,7 @@
 <mapper namespace="com.example.mapper.CommunityMapper">
 	<select id="selectCommunity" resultType="CommunityVO">
 		SELECT * FROM
-		stweb.stweb_communities where user_id = #{user_id}
+		stweb.stweb_communities order by community_idx DESC limit
+		#{offset}, 5
 	</select>
 </mapper>

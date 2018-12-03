@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%-- <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 
 
@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>estimate ÆäÀÌÁö</title>
+<title>estimate í˜ì´ì§€</title>
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
@@ -25,28 +25,28 @@
 			<tbody>
 				<form>
 					<tr>
-						<th>Á¦¸ñ</th>
-						<td><input type="text" placeholder="Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä. "
+						<th>ì œëª©</th>
+						<td><input type="text" placeholder="ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”. "
 							class="form-control" /></td>
 					</tr>
 					<tr>
-						<th>ÁÖ¼Ò</th>
-						<td><input type="text" placeholder="ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä. "
+						<th>ì£¼ì†Œ</th>
+						<td><input type="text" placeholder="ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš”. "
 							class="form-control" /></td>
 					</tr>
 					<tr>
-						<th>»çÁø</th>
+						<th>ì‚¬ì§„</th>
 						<td><input id='fileselector' type="file"
-							placeholder="ÆÄÀÏÀ» ¼±ÅÃÇÏ¼¼¿ä." accept="image/*" multiple /></td>
+							placeholder="íŒŒì¼ì„ ì„ íƒí•˜ì„¸ìš”." accept="image/*" multiple /></td>
 					</tr>
 					<tr>
-						<th>³»¿ë</th>
-						<td><textarea cols="10" rows="10" placeholder="³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä."
+						<th>ë‚´ìš©</th>
+						<td><textarea cols="10" rows="10" placeholder="ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”."
 								class="form-control"></textarea></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="button" value="Ãë¼Ò" onclick="location.href = 'http://127.0.0.1:8080/estimatelist'"
-							class="estimate-float-right" /> <input type="button" value="µî·Ï" onclick="location.href = 'http://127.0.0.1:8080/estimatelist'"
+						<td colspan="2"><input type="button" value="ì·¨ì†Œ" onclick="location.href = 'http://127.0.0.1:8080/estimatelist'"
+							class="estimate-float-right" /> <input type="button" value="ë“±ë¡" onclick="location.href = 'http://127.0.0.1:8080/estimatelist'"
 							class="estimate-float-right" /></td>
 					</tr>
 				</form>
@@ -60,24 +60,57 @@
 		<div class="collapse navbar-collapse nav-menu">
 			<ul class="navbar-nav mr-auto nav-ul">
 				<li class="nav-item nav-li-magazine"><a class="nav-a-text3"
-					href='http://127.0.0.1:8080/magazine'>¸Å°ÅÁø</a></li>
+					href='http://127.0.0.1:8080/magazine'>ë§¤ê±°ì§„</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4"
-					href='http://127.0.0.1:8080/talk'>Ä¿¹Â´ÏÆ¼</a></li>
+					href='http://127.0.0.1:8080/talk'>ì»¤ë®¤ë‹ˆí‹°</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4"
-					href='http://127.0.0.1:8080/precheck'>»çÀüÀü°Ë</a></li>
+					href='http://127.0.0.1:8080/precheck'>ì‚¬ì „ì „ê²€</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4"
-					href='http://127.0.0.1:8080/estimatelist'>°ßÀû¿äÃ»</a></li>
+					href='http://127.0.0.1:8080/estimatelist'>ê²¬ì ìš”ì²­</a></li>
 			</ul>
 		</div>
 		<div class="div_login">
 			<form>
 				<button class="btn btn-secondary my-sm-0 nav-button-mypage"
 					onclick="location.href = 'http://127.0.0.1:8080/mypage'"
-					type="button">¸¶ÀÌÆäÀÌÁö</button>
+					type="button">ë§ˆì´í˜ì´ì§€</button>
 				<button class="btn btn-secondary my-sm-0 nav-button-logout"
-					onclick="location.href = 'http://127.0.0.1:8080/'" type="button">·Î±×¾Æ¿ô</button>
+					onclick="location.href = 'http://127.0.0.1:8080/'" type="button">ë¡œê·¸ì•„ì›ƒ</button>
 			</form>
 		</div>
 	</nav>
 </body>
-</html>
+</html> --%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html>
+<head>
+<title>Home</title>
+</head>
+<body>
+	<h1>Hello world!</h1>
+
+	<table>
+		<thead>
+			<tr>
+				<th>ì•„ì´ë””</th>
+				<th>ë¹„ë°€ë²ˆí˜¸</th>
+				<th>ì´ë¦„</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${EstimateList}" var="estimate">
+				<tr>
+					<td>${estimate.estimate_title}</td>
+					<td>${estimate.estimate_content}</td>
+					<td>${estimate.estimate_date}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+
+
+</body>
+</html>x

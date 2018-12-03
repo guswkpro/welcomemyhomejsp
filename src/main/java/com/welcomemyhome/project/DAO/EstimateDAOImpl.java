@@ -9,21 +9,21 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.welcomemyhome.project.VO.MagazineVO;
+import com.welcomemyhome.project.VO.EstimateVO;
 
 @Repository
-public class MagazineDAOImpl implements MagazineDAO {
+public class EstimateDAOImpl implements EstimateDAO {
 
 	@Inject
 	private SqlSession sqlSession;
 
-	private static final String Namespace = "com.example.mapper.MagazineMapper";
+	private static final String Namespace = "com.example.mapper.EstimateMapper";
 
 	@Override
-	public List<MagazineVO> selectMagazine(int offset) throws Exception {
+	public List<EstimateVO> selectEstimate(int offset) throws Exception {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("offset", offset);
-		return sqlSession.selectList(Namespace + ".selectMagazine", parameters);
+		return sqlSession.selectList(Namespace + ".selectEstimate", parameters);
 	}
 
 }
