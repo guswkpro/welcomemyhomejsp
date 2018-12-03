@@ -38,8 +38,8 @@
 								class="form-control"></textarea></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="button" value="취소" onclick="location.href = 'http://127.0.0.1:8080/estimatelist'"
-							class="estimate-float-right" /> <input type="button" value="등록" onclick="location.href = 'http://127.0.0.1:8080/estimatelist'"
+						<td colspan="2"><input type="button" value="취소" onclick="location.href = 'http://127.0.0.1:8080/estimatelist?offset=0'"
+							class="estimate-float-right" /> <input type="button" value="등록" onclick="location.href = 'http://127.0.0.1:8080/estimatelist?offset=0'"
 							class="estimate-float-right" /></td>
 					</tr>
 				</form>
@@ -53,22 +53,23 @@
 		<div class="collapse navbar-collapse nav-menu">
 			<ul class="navbar-nav mr-auto nav-ul">
 				<li class="nav-item nav-li-magazine"><a class="nav-a-text3"
-					href='http://127.0.0.1:8080/magazine'>매거진</a></li>
+					href='http://127.0.0.1:8080/magazines'>매거진</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4"
-					href='http://127.0.0.1:8080/talk'>커뮤니티</a></li>
+					href='http://127.0.0.1:8080/community'>커뮤니티</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4"
-					href='http://127.0.0.1:8080/precheck'>사전전검</a></li>
+					href='http://127.0.0.1:8080/preinspection'>사전점검</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4"
-					href='http://127.0.0.1:8080/estimatelist'>견적요청</a></li>
+					href='http://127.0.0.1:8080/estimatelist?offset=0'>견적요청</a></li>
 			</ul>
 		</div>
-		<div class="div_login">
+		<div class="nav-div-form">
 			<form>
-				<button class="btn btn-secondary my-sm-0 nav-button-mypage"
-					onclick="location.href = 'http://127.0.0.1:8080/mypage'"
-					type="button">마이페이지</button>
-				<button class="btn btn-secondary my-sm-0 nav-button-logout"
-					onclick="location.href = 'http://127.0.0.1:8080/'" type="button">로그아웃</button>
+				<button class="btn btn-secondary my-sm-0 nav-button-login"
+					onclick="location.href = 'http://127.0.0.1:8080/login'"
+					type="button">로그인</button>
+				<button class="btn btn-secondary my-sm-0 nav-button-signup"
+					onclick="location.href = 'http://127.0.0.1:8080/signup'"
+					type="button">회원가입</button>
 			</form>
 		</div>
 	</nav>

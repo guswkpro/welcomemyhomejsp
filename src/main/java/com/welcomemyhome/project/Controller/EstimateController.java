@@ -13,24 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.welcomemyhome.project.Service.EstimateService;
 import com.welcomemyhome.project.VO.EstimateVO;
 
 @Controller
 public class EstimateController {
 	private static final Logger logger = LoggerFactory.getLogger(EstimateListController.class);
-
-	@Inject
-	private EstimateService service;
 	
 	@RequestMapping(value = "/estimate", method = RequestMethod.GET)
-	public String EstimateList(Locale locale, Model model, @RequestParam int offset) throws Exception {
+	public String EstimateList(Locale locale, Model model) throws Exception {
 
 		logger.info("Estimate");
-
-		List<EstimateVO> Estimate = service.selectEstimate(offset);
-
-		model.addAttribute("Estimate", Estimate);
 
 		return "estimate";
 	}

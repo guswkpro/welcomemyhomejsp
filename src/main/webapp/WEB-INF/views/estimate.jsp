@@ -52,8 +52,8 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-							<input type="button" value="취소" class="estimate-float-right" onclick="location.href = 'http://127.0.0.1:8080/estimatelist'"/> 
-							<input type="button" value="등록" class="estimate-float-right" onclick="location.href = 'http://127.0.0.1:8080/estimatelist'"/>
+							<input type="button" value="취소" class="estimate-float-right" onclick="location.href = 'http://127.0.0.1:8080/estimatelist?offset=0'"/> 
+							<input type="button" value="등록" class="estimate-float-right" onclick="location.href = 'http://127.0.0.1:8080/estimatelist?offset=0'"/>
 						</td>
 					</tr>
 				</form>

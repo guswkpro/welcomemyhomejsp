@@ -39,7 +39,7 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${EstimateList}" var="estimate">
-					<tr>
+					<tr onclick="location.href = 'http://127.0.0.1:8080/estimatedetail'">
 						<td class="text_align_center">${estimate.estimate_idx}</td>
 						<td class="text_align_left">${estimate.estimate_title}</td>
 						<td class="text_align_center">${estimate.user_idx}</td>
