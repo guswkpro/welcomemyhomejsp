@@ -27,8 +27,9 @@
 		location="WEB-INF/views/script/, classpath=/script/"
 		mapping="/script/**" />
 
-
-
+	<resources
+		location="WEB-INF/views/public/, classpath=/public/"
+		mapping="/public/**" />
 
 	<resources location="WEB-INF/views/css/, classpath=/css/"
 		mapping="/css/**" />

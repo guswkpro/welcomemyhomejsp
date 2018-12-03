@@ -1,0 +1,58 @@
+.preinspection-div {
+    margin-top:7%;
+  }
+
+.preinspection-float-right {
+    float : right;
+}
+
+.img_container {
+    height: 60%;
+}
+
+table tr{
+    text-align : center;
+}
+
+.wrapper {
+    width: 100%;
+    position: relative;
+    /* background-image: url("../img/µµ¸é.JPG");
+    position: absolute; */
+    z-index:1;
+    margin:0;
+    padding:0;
+    /* background-size: 150px; */
+}
+
+.grabbable {
+    cursor: move; cursor: -moz-grab; cursor: -webkit-grab; cursor: grab; 
+}
+
+.grabbing {
+   cursor: move; cursor: -moz-grabbing; cursor: -webkit-grabbing; cursor: grabbing;
+}
+
+.pin_div {
+    position : relative;
+    width: 30px;
+    height: 40px;
+}
+
+.based-img {
+    position: absolute;
+    padding : 0;
+    z-index: 2;
+    margin : 0;
+    display : block;
+}
+
+.pin-img {
+    z-index: 99;
+    width: 30px;
+    height: 30px;
+}
+
+.addpin-button {
+    margin-left : 30px;
+}

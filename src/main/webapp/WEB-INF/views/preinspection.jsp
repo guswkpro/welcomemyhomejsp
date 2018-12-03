@@ -19,45 +19,37 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/nav.css" />
-<link rel="stylesheet" type="text/css" href="css/estimateList.css" />
+<link rel="stylesheet" type="text/css" href="css/preinspection.css" />
 
 <title>놀러와 마이홈</title>
 </head>
-
 <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0"
 	width="100%" height="100%">
-	<div class="container estimateList-div">
-		<table>
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>날짜</th>
-					<th>답변수</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${EstimateList}" var="estimate">
-					<tr>
-						<td>${estimate.estimate_idx}</td>
-						<td>${estimate.estimate_title}</td>
-						<td>${estimate.estimate_date}</td>
-						<td>${estimate.estimate_answer_count}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-		<hr />
-		<input type="button" value="작성" class="estimateList-float-right"
-			onclick="location.href = 'http://127.0.0.1:8080/estimate'" />
-
-		<div class="pagenation">
-			<input type="button" value="사용자 글" class="estimateList-float-left" />
-			<input type="button" value="내 글보기" class="estimateList-float-left" />
-			<button>Previous</button>
-			{{currentPage}}/{{numberOfPages()}}
-			<button>Next</button>
+	<div class="container preinspection-div">
+		<div id="div-pin">
+			<img id="my_pin" class="pin-img" src="./public/pin.png"
+				sytle="position:absolute">
+		</div>
+		<div style="position: relative">
+			<table class="table table-bordered">
+				<tbody>
+					<form>
+						<tr>
+							<th>도면 사진</th>
+							<td style="position: relative">
+								<div id="base_img" class="wrapper">
+									<img id="plan" src="./public/도면.JPG" alt="이미지 없음">
+								</div>
+							</td>
+						</tr>
+					</form>
+				</tbody>
+			</table>
+		</div>
+		<div>
+			<input type="button" value="새 도면 등록"
+				class="preinspection-float-right"
+				onclick="location.href = 'http://127.0.0.1/preinspectioncreate'" />
 		</div>
 	</div>
 
@@ -74,7 +66,7 @@
 				<li class="nav-item nav-li"><a class="nav-a-text4"
 					href='http://127.0.0.1:8080/preinspection'>사전점검</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4"
-					href='http://127.0.0.1:8080/estimatelist'>견적요청</a></li>
+					href='http://127.0.0.1:8080/estimatelist?offset=0'>견적요청</a></li>
 			</ul>
 		</div>
 		<div class="nav-div-form">
@@ -88,5 +80,4 @@
 			</form>
 		</div>
 	</nav>
-</body>
 </html>

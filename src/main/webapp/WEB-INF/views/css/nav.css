@@ -7,11 +7,6 @@
   background-color: white;
 }
 
-.div_login {
-  width: 12%
-}
-
-
 .nav-logo {
   width:8%;
   text-align: center;
@@ -63,7 +58,7 @@
   border-radius: 3px;
 }
 
-/* nav menu ï¿½ï¿½ï¿½ï¿½*/
+/* nav menu °£°Ý*/
 .nav-menu {
   text-align: center;
   width:80%;
@@ -111,4 +106,26 @@
   content: "";
   display: inline;
   border-bottom: 1px solid #bcbcbc;
+}
+
+#footer {
+  position : relative;
+  height : 80px;
+  width : 100%;
+  background : #999;
+  clear : both;
+}
+
+#footer .copyright {
+  position : absolute;
+  top : 30px;
+  left : 20px;
+  font : 12px, ±¼¸², µ¸¿ò;
+  color : #000
+}
+
+.footer-logo { 
+  font-weight: bolder;
+  color: black;
+  font-size: 25px;
 }

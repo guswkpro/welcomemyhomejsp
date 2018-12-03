@@ -7,7 +7,7 @@ public class EstimateVO {
 	private String estimate_content;
 	private String estimate_date;
 	private String estimate_address;
-	private int answer_count;
+	private int estimate_answer_count;
 	private int user_idx;
 	
 	public int getEstimate_idx() {
@@ -46,11 +46,11 @@ public class EstimateVO {
 	public void setEstimate_address(String estimate_address) {
 		this.estimate_address = estimate_address;
 	}
-	public int getAnswer_count() {
-		return answer_count;
+	public int getEstimate_answer_count() {
+		return estimate_answer_count;
 	}
-	public void setAnswer_count(int answer_count) {
-		this.answer_count = answer_count;
+	public void setEstimate_answer_count(int estimate_answer_count) {
+		this.estimate_answer_count = estimate_answer_count;
 	}
 	public int getUser_idx() {
 		return user_idx;

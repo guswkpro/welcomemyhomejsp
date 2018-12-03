@@ -17,21 +17,21 @@ import com.welcomemyhome.project.Service.EstimateService;
 import com.welcomemyhome.project.VO.EstimateVO;
 
 @Controller
-public class EstimateController {
-	private static final Logger logger = LoggerFactory.getLogger(EstimateController.class);
+public class EstimateListController {
+	private static final Logger logger = LoggerFactory.getLogger(EstimateListController.class);
 
 	@Inject
 	private EstimateService service;
 	
-	@RequestMapping(value = "/estimate", method = RequestMethod.GET)
-	public String Estimate(Locale locale, Model model, @RequestParam int offset) throws Exception {
+	@RequestMapping(value = "/estimatelist", method = RequestMethod.GET)
+	public String EstimateList(Locale locale, Model model, @RequestParam int offset) throws Exception {
 
-		logger.info("Estimate");
+		logger.info("EstimateList");
 
 		List<EstimateVO> EstimateList = service.selectEstimate(offset);
 
 		model.addAttribute("EstimateList", EstimateList);
 
-		return "estimate";
+		return "estimatelist";
 	}
 }
