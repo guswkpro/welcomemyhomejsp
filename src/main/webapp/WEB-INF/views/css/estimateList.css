@@ -1,0 +1,16 @@
+.estimateList-div {
+  margin-top:8%;
+}
+
+
+.estimateList-float-right {
+  float : right;
+}
+
+.estimateList-float-left {
+  float : left;
+}
+
+.pagenation {
+  text-align: center;
+}
