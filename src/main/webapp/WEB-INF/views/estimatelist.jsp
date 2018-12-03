@@ -24,7 +24,8 @@
 <title>놀러와 마이홈</title>
 </head>
 
-<body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%">
+<body cellpadding="0" cellspacing="0" marginleft="0" margintop="0"
+	width="100%" height="100%">
 	<div class="container estimateList-div">
 		<table>
 			<thead>
@@ -53,14 +54,14 @@
 			onclick="location.href = 'http://127.0.0.1:8080/estimate'" />
 
 		<div class="pagenation">
-			<input type="button" value="사용자 글" class="estimateList-float-left" /> 
+			<input type="button" value="사용자 글" class="estimateList-float-left" />
 			<input type="button" value="내 글보기" class="estimateList-float-left" />
 			<button>Previous</button>
 			1/4
 			<button>Next</button>
 		</div>
 	</div>
-	
+
 	<nav class="navbar navbar-expand-lg nav">
 		<div class="nav-logo">
 			<a class="navbar-bran" href='http://127.0.0.1:8080/'>WMH</a>
