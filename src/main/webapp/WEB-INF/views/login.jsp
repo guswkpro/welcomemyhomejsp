@@ -84,7 +84,7 @@
 				<li class="nav-item nav-li"><a class="nav-a-text4"
 					href='http://127.0.0.1:8080/preinspection'>사전점검</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4"
-					href='http://127.0.0.1:8080/estimatelist'>견적요청</a></li>
+					href='http://127.0.0.1:8080/estimatelist?offset=0'>견적요청</a></li>
 			</ul>
 		</div>
 		<div class="nav-div-form">

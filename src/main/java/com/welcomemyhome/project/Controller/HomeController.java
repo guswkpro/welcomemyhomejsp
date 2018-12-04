@@ -32,21 +32,14 @@ public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	@Inject
-	private UserService service;
 
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, @RequestParam String user_id) throws Exception {
+	public String home(Locale locale, Model model) throws Exception {
 
 		logger.info("home");
-
-		List<UserVO> UserList = service.selectUser(user_id);
-
-		model.addAttribute("UserList", UserList);
-
 		return "home";
 	}
 

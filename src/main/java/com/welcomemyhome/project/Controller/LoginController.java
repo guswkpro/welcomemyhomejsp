@@ -14,7 +14,7 @@ public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String Preinspection(Locale locale, Model model) throws Exception {
+	public String Login(Locale locale, Model model) throws Exception {
 
 		logger.info("Login");
 

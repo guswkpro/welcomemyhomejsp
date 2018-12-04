@@ -33,9 +33,8 @@
 					<th>사진</th>
 					<td>
 						<div>
-							<img width="500" height="300" src="public/누수.jpg" alt="이미지 없음"><br />
-							<img width="500" height="300" src="public/금.jpg" alt="이미지 없음"><br />
-							<img width="500" height="300" src="public/누수.jpg" alt="이미지 없음"><br />
+							<img width="500" height="300" src="public/누수.JPG" alt="이미지 없음"><br />
+							<img width="500" height="300" src="public/금.JPG" alt="이미지 없음"><br />
 						</div>
 					</td>
 				</tr>
@@ -77,7 +76,7 @@
 				<li class="nav-item nav-li"><a class="nav-a-text4"
 					href='http://127.0.0.1:8080/precheck'>사전전검</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4"
-					href='http://127.0.0.1:8080/estimatelist'>견적요청</a></li>
+					href='http://127.0.0.1:8080/estimatelist?offset=0'>견적요청</a></li>
 			</ul>
 		</div>
 		<div class="div_login">

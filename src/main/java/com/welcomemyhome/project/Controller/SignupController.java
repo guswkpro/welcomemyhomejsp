@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class EstimateAnswerController {
-	private static final Logger logger = LoggerFactory.getLogger(EstimateAnswerController.class);
+public class SignupController {
+	private static final Logger logger = LoggerFactory.getLogger(SignupController.class);
 	
-	@RequestMapping(value = "/estimateanswer", method = RequestMethod.GET)
-	public String EstimateAnswer(Locale locale, Model model) throws Exception {
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public String Signup(Locale locale, Model model) throws Exception {
 
-		logger.info("EstimateAnswer");
+		logger.info("Signup");
 
-		return "estimateanswer";
+		return "signup";
 	}
 }

@@ -14,7 +14,7 @@ public class EstimateDetailController {
 	private static final Logger logger = LoggerFactory.getLogger(EstimateDetailController.class);
 	
 	@RequestMapping(value = "/estimatedetail", method = RequestMethod.GET)
-	public String Preinspection(Locale locale, Model model) throws Exception {
+	public String EstimateDetail(Locale locale, Model model) throws Exception {
 
 		logger.info("EstimateDetail");
 

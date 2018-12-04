@@ -20,7 +20,7 @@ public class EstimateController {
 	private static final Logger logger = LoggerFactory.getLogger(EstimateListController.class);
 	
 	@RequestMapping(value = "/estimate", method = RequestMethod.GET)
-	public String EstimateList(Locale locale, Model model) throws Exception {
+	public String Estimate(Locale locale, Model model) throws Exception {
 
 		logger.info("Estimate");
 

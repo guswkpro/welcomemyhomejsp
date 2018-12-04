@@ -79,7 +79,7 @@
 				</thead>
 				<tbody>
 					<tr
-						onclick="location.href = 'http://127.0.0.1:8080/estimatedetail'">
+						onclick="location.href = 'http://127.0.0.1:8080/estimateanswerdetail'">
 						<td>60</td>
 						<td>견적요청 드립니다!!</td>
 						<td>user30</td>
@@ -87,7 +87,7 @@
 						<td>2</td>
 					</tr>
 					<tr
-						onclick="location.href = 'http://127.0.0.1:8080/estimatedetail'">
+						onclick="location.href = 'http://127.0.0.1:8080/estimateanswerdetail'">
 						<td>59</td>
 						<td>누수가 있어요</td>
 						<td>user74</td>
@@ -95,7 +95,7 @@
 						<td>0</td>
 					</tr>
 					<tr
-						onclick="location.href = 'http://127.0.0.1:8080/estimatedetail'">
+						onclick="location.href = 'http://127.0.0.1:8080/estimateanswerdetail'">
 						<td>58</td>
 						<td>방을 유럽풍으로 하고 싶어요</td>
 						<td>user25</td>
@@ -103,7 +103,7 @@
 						<td>7</td>
 					</tr>
 					<tr
-						onclick="location.href = 'http://127.0.0.1:8080/estimatedetail'">
+						onclick="location.href = 'http://127.0.0.1:8080/estimateanswerdetail'">
 						<td>57</td>
 						<td>도색을 다시하고 싶어요</td>
 						<td>user48</td>
@@ -111,7 +111,7 @@
 						<td>0</td>
 					</tr>
 					<tr
-						onclick="location.href = 'http://127.0.0.1:8080/estimatedetail'">
+						onclick="location.href = 'http://127.0.0.1:8080/estimateanswerdetail'">
 						<td>56</td>
 						<td>바닥을 다시 새로하고 싶어요</td>
 						<td>user2</td>
