@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-   pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -10,12 +10,18 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
-<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" >
-<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.css" >
-<script src="/bootstrap/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/nav.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/nav.css" />
+  <link rel="stylesheet" type="text/css" href="css/magazines.css" />
 
-<title>��͸���Ȩ - �Ű���</title>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" ></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"></script>
+
+
+<title>놀러와마이홈 - 매거진</title>
 </head>
 <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0"
    width="100%" height="100%">
@@ -66,23 +72,23 @@
       <div class="collapse navbar-collapse nav-menu">
          <ul class="navbar-nav mr-auto nav-ul">
             <li class="nav-item nav-li-magazine"><a class="nav-a-text3"
-               href='http://127.0.0.1:8080/magazines'>�Ű���</a></li>
+               href='http://127.0.0.1:8080/magazines'>매거진</a></li>
             <li class="nav-item nav-li"><a class="nav-a-text4"
-               href='http://127.0.0.1:8080/community'>Ŀ�´�Ƽ</a></li>
+               href='http://127.0.0.1:8080/community'>커뮤니티</a></li>
             <li class="nav-item nav-li"><a class="nav-a-text4"
-               href='http://127.0.0.1:8080/preinspection'>��������</a></li>
+               href='http://127.0.0.1:8080/preinspection'>사전점검</a></li>
             <li class="nav-item nav-li"><a class="nav-a-text4"
-               href='http://127.0.0.1:8080/estimatelist?offset=0'>������û</a></li>
+               href='http://127.0.0.1:8080/estimatelist?offset=0'>견적요청</a></li>
          </ul>
       </div>
       <div class="nav-div-form">
          <form>
             <button class="btn btn-secondary my-sm-0 nav-button-login"
                onclick="location.href = 'http://127.0.0.1:8080/login'"
-               type="button">�α���</button>
+               type="button">로그인</button>
             <button class="btn btn-secondary my-sm-0 nav-button-signup"
                onclick="location.href = 'http://127.0.0.1:8080/signup'"
-               type="button">ȸ������</button>
+               type="button">회원가입</button>
          </form>
       </div>
    </nav>
