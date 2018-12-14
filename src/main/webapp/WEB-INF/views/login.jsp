@@ -38,8 +38,8 @@
 				<h5 class="form-signin-heading"></h5>
 				<label for="inputEmail" class="sr-only">아이디입력</label> <input
 					type="text" id="user_id" value="sw" class="form-control"
-					placeholder="아이디 입력" required autofocus><br>
-				<label for="inputPassword" class="sr-only">패스워드입력</label> <input
+					placeholder="아이디 입력" required autofocus><br> <label
+					for="inputPassword" class="sr-only">패스워드입력</label> <input
 					type="password" id="user_password" value="1234"
 					class="form-control" placeholder="패스워드 입력" required><br>
 
@@ -47,7 +47,8 @@
 					<br />
 				</div>
 				<button id="btn-Yes" class="btn btn-lg btn-primary btn-block"
-					type="button" onclick="location.href = 'http://127.0.0.1:8080/'">로 그 인</button>
+					type="button" onclick="location.href = 'http://127.0.0.1:8080/'">로
+					그 인</button>
 
 				<div>
 					<br />
@@ -69,8 +70,8 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
-		
-		
+
+
 	<nav class="navbar navbar-expand-lg nav">
 		<div class="nav-logo">
 			<a class="navbar-bran" href='http://127.0.0.1:8080/'>WMH</a>
