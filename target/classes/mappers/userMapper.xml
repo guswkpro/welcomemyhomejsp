@@ -8,4 +8,30 @@
 		SELECT * FROM
 		stweb.stweb_users where user_id = #{user_id}
 	</select>
+	<select id="getUserIDAuth" resultType="UserVO">
+		SELECT * FROM
+		stweb.stweb_users where user_id = #{user_id}
+	</select>
+	<select id="getUserInformation" resultType="UserVO">
+		SELECT * FROM
+		stweb.stweb_users where user_id = #{user_idx}
+	</select>
+	<select id="getIDCheck" resultType="UserVO">
+		SELECT * FROM
+		stweb.stweb_users where user_id = #{user_id}
+	</select>
+	<select id="getNicknameCheck" resultType="UserVO">
+		SELECT * FROM
+		stweb.stweb_users where user_id = #{user_nickname}
+	</select>
+
+	<insert id="signup">
+		INSERT INTO stweb.stweb_users (user_id, user_pw,
+		user_nickname, user_join_date, user_subscription, user_auth) VALUES
+		(#{user_id}, #{user_pw}, #{user_nickname}, #{user_join_date}, #{user_subscription}, #{user_auth})
+	</insert>
+
+	<update id="editUserConnectDate">
+		UPDATE stweb.stweb_users set user_recent_date = #{user_recent_date} where user_idx = #{user_idx}
+	</update>
 </mapper>

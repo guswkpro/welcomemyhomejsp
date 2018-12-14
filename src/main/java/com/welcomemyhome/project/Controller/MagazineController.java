@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,9 +25,11 @@ public class MagazineController {
 	private MagazineService service;
 	
 	@RequestMapping(value = "/magazine", method = RequestMethod.GET)
-	public String Magazine(Locale locale, Model model, @RequestParam int offset) throws Exception {
+	public String Magazine(Locale locale, Model model, @RequestParam int offset, HttpSession session) throws Exception {
 
 		logger.info("Magazine");
+		
+		System.out.println(session.getAttribute("token")+"ASDFASDFASDF");
 
 		List<MagazineVO> MagazineList = service.selectMagazine(offset);
 

@@ -1,71 +1,79 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html lang="ko" ng-app="Main">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <meta name="description" content="">
-  <meta name="author" content="">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
 
-  <!-- jQuery -->
-  <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+<!-- jQuery -->
+<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="css/nav.css" />
-	<link rel="stylesheet" type="text/css" href="css/signup.css" />
-  <title>놀러와 마이홈</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/nav.css" />
+<link rel="stylesheet" type="text/css" href="css/signup.css" />
+<title>놀러와 마이홈</title>
 </head>
 
-<body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%">
+<body cellpadding="0" cellspacing="0" marginleft="0" margintop="0"
+	width="100%" height="100%">
 
-    <div class="card align-middle" style="width:20rem; height:27rem; border-radius:20px;">
-        <div class="card-title" style="margin-top:30px;">
-            <h2 class="card-title text-center" style="color:#113366;">놀러와마이홈</h2>
-        </div>
-        <div class="card-body">
-            <form class="form-signup" name="userInfo" method="POST">
-                <label for="inputid" class="sr-only">아이디입력</label>
-                <input type="text" id="input_id" placeholder="아이디입력" class="form-control2" required autofocus style="padding-right:48.3px;">
-                <label for="checkid" class="sr-only"></label>
-                <button id="id_confirm" type="button" name="idconfirm" class="btn btn-outline-primary btn-sm confirmbutton">중복확인</button>
-                <input type="hidden" id="id_check" value="no" />
-                <div>
-                    <br />
-                </div>
-                <label for="inputPassword" class="sr-only">패스워드입력</label>
-                <input type="password" id="user_password" class="form-control2" placeholder="패스워드" style="padding-right:125px;"
-                    required>
-                <br />
-                <div>
-                    <br />
-                </div>
-                <label for="inputPasswordCheck" class="sr-only">패스워드확인</label>
-                <input type="password" id="user_password_check" class="form-control2" placeholder="패스워드확인" style="padding-right:125px;"
-                    required>
-                <div>
-                    <br />
-                </div>
-                <label for="inputnickname" class="sr-only">닉네임</label>
-                <input type="text" id="user_nickname" class="form-control2" placeholder="닉네임입력" style="padding-right:48.3px;"
-                    required>
-                <label for="checknickname" class="sr-only"></label>
-                <button id="nickname_confirm" type="button" name="nicknameconfirm" class="btn btn-outline-primary btn-sm confirmbutton">중복확인</button>
-                <input type="hidden" id="nickname_check" value="no" /> <br>
+	<div class="card align-middle"
+		style="width: 20rem; height: 27rem; border-radius: 20px;">
+		<div class="card-title" style="margin-top: 30px;">
+			<h2 class="card-title text-center" style="color: #113366;">놀러와마이홈</h2>
+		</div>
+		<div class="card-body">
+			<form class="form-signup" name="userVO" method="POST">
+				<label for="inputid" class="sr-only">아이디입력</label> <input
+					type="text" id="user_id" placeholder="아이디입력" class="form-control2"
+					required autofocus style="padding-right: 48.3px;"> <label
+					for="checkid" class="sr-only"></label>
+				<button id="id_confirm" type="button" name="idconfirm"
+					class="btn btn-outline-primary btn-sm confirmbutton">중복확인</button>
+				<input type="hidden" id="id_check" value="no" />
+				<div>
+					<br />
+				</div>
+				<label for="inputPassword" class="sr-only">패스워드입력</label> <input
+					type="password" id="user_password" class="form-control2"
+					placeholder="패스워드" style="padding-right: 125px;" required>
+				<br />
+				<div>
+					<br />
+				</div>
+				<label for="inputPasswordCheck" class="sr-only">패스워드확인</label> <input
+					type="password" id="user_password_check" class="form-control2"
+					placeholder="패스워드확인" style="padding-right: 125px;" required>
+				<div>
+					<br />
+				</div>
+				<label for="inputnickname" class="sr-only">닉네임</label> <input
+					type="text" id="user_nickname" class="form-control2"
+					placeholder="닉네임입력" style="padding-right: 48.3px;" required>
+				<label for="checknickname" class="sr-only"></label>
+				<button id="nickname_confirm" type="button" name="nicknameconfirm"
+					class="btn btn-outline-primary btn-sm confirmbutton">중복확인</button>
+				<input type="hidden" id="nickname_check" value="no" /> <br>
 
-                <div>
-                    <br />
-                    <br />
-                </div>
-                <button id="btn-Yes" class="btn btn-primary btn-block" type="button" onclick="location.href = 'http://127.0.0.1:8080/'"> 회 원 가 입</button>
-            </form>
-        </div>
-    </div>
-  	<nav class="navbar navbar-expand-lg nav">
+				<div>
+					<br /> <br />
+				</div>
+				<input type="submit" id="btn-Yes" class="btn btn-primary btn-block"
+					value="회원가입">
+			</form>
+		</div>
+	</div>
+	<nav class="navbar navbar-expand-lg nav">
 		<div class="nav-logo">
 			<a class="navbar-bran" href='http://127.0.0.1:8080/'>WMH</a>
 		</div>
@@ -95,4 +103,3 @@
 </body>
 
 </html>
-    
