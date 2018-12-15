@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-<html lang="ko" ng-app="Main">
+<html lang="ko">
 
 <head>
 <meta charset="utf-8">
@@ -35,7 +35,7 @@
 		<div class="card-body">
 			<form class="form-signup" name="userVO" method="POST">
 				<label for="inputid" class="sr-only">아이디입력</label> <input
-					type="text" id="user_id" placeholder="아이디입력" class="form-control2"
+					type="text" name="user_id" id="user_id" placeholder="아이디입력" class="form-control2"
 					required autofocus style="padding-right: 48.3px;"> <label
 					for="checkid" class="sr-only"></label>
 				<button id="id_confirm" type="button" name="idconfirm"
@@ -45,7 +45,7 @@
 					<br />
 				</div>
 				<label for="inputPassword" class="sr-only">패스워드입력</label> <input
-					type="password" id="user_password" class="form-control2"
+					type="password" name="user_pw" id="user_password" class="form-control2"
 					placeholder="패스워드" style="padding-right: 125px;" required>
 				<br />
 				<div>
@@ -58,7 +58,7 @@
 					<br />
 				</div>
 				<label for="inputnickname" class="sr-only">닉네임</label> <input
-					type="text" id="user_nickname" class="form-control2"
+					type="text" name="user_nickname" id="user_nickname" class="form-control2"
 					placeholder="닉네임입력" style="padding-right: 48.3px;" required>
 				<label for="checknickname" class="sr-only"></label>
 				<button id="nickname_confirm" type="button" name="nicknameconfirm"
