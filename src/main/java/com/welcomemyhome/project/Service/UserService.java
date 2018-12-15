@@ -2,7 +2,6 @@ package com.welcomemyhome.project.Service;
 
 import java.util.List;
 
-import com.welcomemyhome.project.DAO.UserDAO;
 import com.welcomemyhome.project.VO.UserVO;
 
 public interface UserService {

@@ -1,7 +1,7 @@
 package com.welcomemyhome.project.Service;
 
-import java.io.File;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -36,12 +36,28 @@ public class MagazineServiceImpl implements MagazineService {
 				magazineList.get(i).setMagazine_like_check(0);
 			}
 		}
+
 		return magazineList;
 	}
 
 	@Override
 	public List<MagazineVO> getMagazineDetail(String user_idx, String magazine_idx) throws Exception {
 		List<MagazineVO> magazineList = dao.getMagazineDetail(user_idx, magazine_idx);
+		dao.editMagazineHitCount(magazine_idx);
+
+		if (dao.getMagazineCommentCheck(user_idx, magazineList.get(0).getMagazine_idx() + "").size() != 0) {
+			magazineList.get(0).setMagazine_comment_check(1);
+		} else {
+			magazineList.get(0).setMagazine_comment_check(0);
+		}
+
+		if (dao.getMagazineLikeCheck(user_idx, magazineList.get(0).getMagazine_idx() + "").size() != 0) {
+			magazineList.get(0).setMagazine_like_check(1);
+		} else {
+			magazineList.get(0).setMagazine_like_check(0);
+		}
+		magazineList.get(0).setMagazine_hit_count(magazineList.get(0).getMagazine_hit_count() + 1);
+
 		return magazineList;
 	}
 
@@ -52,13 +68,21 @@ public class MagazineServiceImpl implements MagazineService {
 
 	/* POST */
 	@Override
-	public void addMagazineLike(String user_idx, String magazine_idx, String date) throws Exception {
+	public void addMagazineLike(String user_idx, String magazine_idx) throws Exception {
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
+		dao.addMagazineLike(user_idx, magazine_idx, sdf.format(date).toString());
+		dao.editMagazineLikeCount(magazine_idx, 1);
 	}
 
 	@Override
-	public void addMagazineComment(String comment_content, String date, String user_idx, String magazine_idx) throws Exception {
+	public void addMagazineComment(String comment_content, String user_idx, String magazine_idx) throws Exception {
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
+		dao.addMagazineComment(comment_content, sdf.format(date).toString(), user_idx, magazine_idx);
+		dao.editMagazineCommentCount(magazine_idx, 1);
 	}
 
 	/* DELETE */

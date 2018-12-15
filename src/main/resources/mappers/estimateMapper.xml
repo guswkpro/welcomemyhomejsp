@@ -4,7 +4,68 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.mapper.EstimateMapper">
-	<select id="selectEstimate" resultType="EstimateVO">
-		SELECT * FROM stweb.stweb_estimates order by estimate_idx DESC limit #{offset}, 5
+	<select id="getEstimateList" resultType="EstimateVO">
+		SELECT * FROM
+		stweb.stweb_estimates order by estimate_idx DESC limit #{offset}, 5
 	</select>
+	<select id="getEstimateForUser" resultType="EstimateVO">
+		SELECT * FROM
+		stweb.stweb_estimates where user_idx = #{user_idx} order by
+		estimate_idx DESC limit #{offset}, 5
+	</select>
+	<select id="getEstimateAnswerForUser"
+		resultType="EstimateAnswerVO">
+		SELECT * FROM
+		stweb.stweb_estimate_answers where user_idx =
+		#{user_idx} order by
+		estimate_idx
+		DESC limit #{offset}, 5
+	</select>
+	<select id="getEstimateDetail" resultType="EstimateVO">
+		SELECT * FROM
+		stweb.stweb_estimates where estimate_idx = #{estimate_idx}
+	</select>
+	<select id="getEstimateAnswer" resultType="EstimateAnswerVO">
+		SELECT * FROM
+		stweb.stweb_estimate_answers where estimate_idx = #{estimate_idx}
+		order by answer_idx DESC limit #{offset}, 5
+	</select>
+	<select id="getEstimateAnswerDetail"
+		resultType="EstimateAnswerVO">
+		SELECT * FROM stweb.stweb_estimate_answers where answer_idx
+		= #{answer_idx}
+	</select>
+	<select id="getEstimateCount" resultType="CountVO">
+		SELECT count(*) as cnt
+		FROM stweb.stweb_estimates
+	</select>
+	<select id="getEstimateAnswerCount"
+		resultType="CountVO">
+		SELECT count(*) as cnt FROM stweb.stweb_estimate_answers
+	</select>
+
+	<insert id="addEstimate">
+		INSERT INTO stweb.stweb_estimates (estimate_title,
+		estimate_picture_path,
+		estimate_content, estimate_date,
+		estimate_address,
+		estimate_answer_count, user_idx) VALUES
+		(#{estimate_title}, #{estimate_picture_path}, #{estimate_content},
+		#{date}, #{estimate_address}, #{estimate_answer_count}, #{user_idx})
+	</insert>
+	<insert id="addEstimateAnswer">
+		INSERT INTO stweb.stweb_estimate_answers
+		(answer_title, answer_picture_path,
+		answer_content, answer_date,
+		estimate_idx, user_idx) VALUES (#{answer_title},
+		#{answer_picture_path}, #{answer_content}, #{answer_date},
+		#{estimate_idx}, #{user_idx})
+	</insert>
+
+	<update id="editAnswerCount">
+		UPDATE stweb.stweb_estimates set
+		estimate_answer_count =
+		estimate_answer_count + 1 where estimate_idx =
+		#{estimate_idx}
+	</update>
 </mapper>

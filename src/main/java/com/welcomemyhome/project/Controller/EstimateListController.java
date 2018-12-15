@@ -28,7 +28,7 @@ public class EstimateListController {
 
 		logger.info("EstimateList");
 
-		List<EstimateVO> EstimateList = service.selectEstimate(offset);
+		List<EstimateVO> EstimateList = service.getEstimateList(offset);
 
 		model.addAttribute("EstimateList", EstimateList);
 
