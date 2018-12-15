@@ -35,7 +35,7 @@ public class MagazineController implements ServletContextAware{
 		
 		System.out.println(servletContext.getRealPath("WEB-INF/views/public/") + "ASDFASDFASDFASDFASDF");
 
-		List<MagazineVO> MagazineList = service.selectMagazine(offset);
+		List<MagazineVO> MagazineList = service.getMagazineList(offset, session.getAttribute("token").toString().split("/")[0]);
 
 		model.addAttribute("MagazineList", MagazineList);
 

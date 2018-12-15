@@ -4,9 +4,75 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.mapper.MagazineMapper">
-	<select id="selectMagazine" resultType="MagazineVO">
+	<select id="getMagazineList" resultType="MagazineVO">
 		SELECT * FROM
 		stweb.stweb_magazines order by magazine_idx DESC limit
 		#{offset}, 15
 	</select>
+	<select id="getMagazineDetail" resultType="MagazineVO">
+		SELECT * FROM
+		stweb.stweb_magazines where magazine_idx = #{magazine_idx}
+	</select>
+	<select id="getMagazineComment" resultType="MagazineCommentVO">
+		SELECT * FROM
+		stweb.stweb_magazine_comments where magazine_idx =
+		#{magazine_idx}
+	</select>
+	<select id="getMagazineLikeCheck" resultType="MagazineLikeVO">
+		SELECT * FROM
+		stweb.stweb_magazine_likes where magazine_idx =
+		#{magazine_idx} AND
+		user_idx = #{user_idx}
+	</select>
+	<select id="getMagazineCommentCheck"
+		resultType="MagazineCommentVO">
+		SELECT * FROM
+		stweb.stweb_magazine_comments where
+		magazine_idx =
+		#{magazine_idx} AND
+		user_idx = #{user_idx}
+	</select>
+	<select id="getMagazineCount" resultType="CountVO">
+		SELECT count(*) as cnt
+		FROM stweb.stweb_magazines
+	</select>
+
+	<insert id="addMagazineLike">
+		INSERT INTO stweb.stweb_magazine_likes (like_date,
+		magazine_idx, user_idx) VALUES (#{like_date}, #{magazine_idx},
+		#{user_idx})
+	</insert>
+	<insert id="addMagazineComment">
+		INSERT INTO stweb.stweb_magazine_comments
+		(comment_content,
+		comment_post_date, user_idx, magazine_idx)
+		VALUES(#{comment_content}, #{comment_post_date}, #{user_idx},
+		#{magazine_idx})
+	</insert>
+
+	<update id="editMagazineHitCount">
+		UPDATE stweb.stweb_magazines set magazine_hit_count =
+		magazine_hit_count + 1
+		where magazine_idx = #{magazine_idx}
+	</update>
+	<update id="editMagazineLikeCount">
+		UPDATE stweb.stweb_magazines set magazine_like_count=
+		magazine_like_count + #{count} where magazine_idx = #{magazine_idx}
+	</update>
+	<update id="editMagazineCommentCount">
+		UPDATE stweb.stweb_magazines set
+		magazine_comment_count =
+		magazine_comment_count + #{count} where
+		magazine_idx = #{magazine_idx}
+	</update>
+
+	<delete id="deleteMagazineLike">
+		DELETE FROM stweb.stweb_magazine_likes WHERE
+		magazine_idx= #{magazine_idx}
+		and user_idx= #{user_idx}
+	</delete>
+	<delete id="deleteMagazineComment">
+		DELETE FROM stweb.stweb_magazine_comments WHERE
+		comment_idx = #{comment_idx}
+	</delete>
 </mapper>

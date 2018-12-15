@@ -7,9 +7,9 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
-import org.apache.commons.codec.binary.Base64;
 
 import com.welcomemyhome.project.DAO.MagazineDAO;
+import com.welcomemyhome.project.VO.MagazineCommentVO;
 import com.welcomemyhome.project.VO.MagazineVO;
 
 @Service
@@ -18,23 +18,57 @@ public class MagazineServiceImpl implements MagazineService {
 	@Inject
 	private MagazineDAO dao;
 
+	/* GET */
 	@Override
-	public List<MagazineVO> selectMagazine(int offset) throws Exception {
-		List<MagazineVO> magazineList = dao.selectMagazine(offset);
+	public List<MagazineVO> getMagazineList(int offset, String user_idx) throws Exception {
+		List<MagazineVO> magazineList = dao.getMagazineList(offset);
+		magazineList.get(0).setMagazine_total_count(Integer.parseInt(dao.getMagazineCount().get(0).getCount()));
+		for (int i = 0; i < magazineList.size(); i++) {
+			if (dao.getMagazineCommentCheck(user_idx, magazineList.get(i).getMagazine_idx() + "").size() != 0) {
+				magazineList.get(i).setMagazine_comment_check(1);
+			} else {
+				magazineList.get(i).setMagazine_comment_check(0);
+			}
 
-		System.out.println(magazineList.get(0).getMagazine_thumbnail_path());
-		File f = new File(magazineList.get(0).getMagazine_thumbnail_path());
-		byte[] content = new byte[(int) f.length()];
-		System.out.println("인코딩 text : " + new String(content) + f.length());
+			if (dao.getMagazineLikeCheck(user_idx, magazineList.get(i).getMagazine_idx() + "").size() != 0) {
+				magazineList.get(i).setMagazine_like_check(1);
+			} else {
+				magazineList.get(i).setMagazine_like_check(0);
+			}
+		}
+		return magazineList;
+	}
 
-		/* base64 encoding */
-		byte[] encodedBytes = Base64.encodeBase64(content);
-		/* base64 decoding */
-		byte[] decodedBytes = Base64.decodeBase64(encodedBytes);
+	@Override
+	public List<MagazineVO> getMagazineDetail(String user_idx, String magazine_idx) throws Exception {
+		List<MagazineVO> magazineList = dao.getMagazineDetail(user_idx, magazine_idx);
+		return magazineList;
+	}
 
-		System.out.println("인코딩 text : " + new String(encodedBytes));
-		System.out.println("디코딩 text : " + new String(decodedBytes));
+	@Override
+	public List<MagazineCommentVO> getMagazineComment(String magazine_idx) throws Exception {
+		return dao.getMagazineComment(magazine_idx);
+	}
 
-		return dao.selectMagazine(offset);
+	/* POST */
+	@Override
+	public void addMagazineLike(String user_idx, String magazine_idx, String date) throws Exception {
+
+	}
+
+	@Override
+	public void addMagazineComment(String comment_content, String date, String user_idx, String magazine_idx) throws Exception {
+
+	}
+
+	/* DELETE */
+	@Override
+	public void deleteMagazineLike(String user_idx, String magazine_idx) throws Exception {
+
+	}
+
+	@Override
+	public void deleteMagazineComment(String comment_idx) throws Exception {
+
 	}
 }

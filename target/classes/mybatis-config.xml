@@ -3,17 +3,37 @@
     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-        <typeAliases>
-            <typeAlias type="com.welcomemyhome.project.VO.UserVO" alias="UserVO"/>
-            <typeAlias type="com.welcomemyhome.project.VO.CommunityCommentVO" alias="CommunityCommentVO"/>
-            <typeAlias type="com.welcomemyhome.project.VO.CommunityLikeVO" alias="CommunityLikeVO"/>
-            <typeAlias type="com.welcomemyhome.project.VO.CommunityVO" alias="CommunityVO"/>
-            <typeAlias type="com.welcomemyhome.project.VO.EstimateAnswerVO" alias="EstimateAnswerVO"/>
-            <typeAlias type="com.welcomemyhome.project.VO.EstimateVO" alias="EstimateVO"/>
-            <typeAlias type="com.welcomemyhome.project.VO.MagazineCommentVO" alias="MagazineCommentVO"/>
-            <typeAlias type="com.welcomemyhome.project.VO.MagazineLikeVO" alias="MagazineLikeVO"/>
-            <typeAlias type="com.welcomemyhome.project.VO.MagazineVO" alias="MagazineVO"/>
-            <typeAlias type="com.welcomemyhome.project.VO.PreinspectionVO" alias="PreinspectionVO"/>
-            <typeAlias type="com.welcomemyhome.project.VO.PreinspectionPinVO" alias="PreinspectionPinVO"/>
-        </typeAliases>
+	<typeAliases>
+		<typeAlias type="com.welcomemyhome.project.VO.UserVO"
+			alias="UserVO" />
+		<typeAlias
+			type="com.welcomemyhome.project.VO.CommunityCommentVO"
+			alias="CommunityCommentVO" />
+		<typeAlias
+			type="com.welcomemyhome.project.VO.CommunityLikeVO"
+			alias="CommunityLikeVO" />
+		<typeAlias type="com.welcomemyhome.project.VO.CommunityVO"
+			alias="CommunityVO" />
+		<typeAlias
+			type="com.welcomemyhome.project.VO.EstimateAnswerVO"
+			alias="EstimateAnswerVO" />
+		<typeAlias type="com.welcomemyhome.project.VO.EstimateVO"
+			alias="EstimateVO" />
+		<typeAlias
+			type="com.welcomemyhome.project.VO.MagazineCommentVO"
+			alias="MagazineCommentVO" />
+		<typeAlias
+			type="com.welcomemyhome.project.VO.MagazineLikeVO"
+			alias="MagazineLikeVO" />
+		<typeAlias type="com.welcomemyhome.project.VO.MagazineVO"
+			alias="MagazineVO" />
+		<typeAlias
+			type="com.welcomemyhome.project.VO.PreinspectionVO"
+			alias="PreinspectionVO" />
+		<typeAlias
+			type="com.welcomemyhome.project.VO.PreinspectionPinVO"
+			alias="PreinspectionPinVO" />
+		<typeAlias type="com.welcomemyhome.project.VO.CountVO"
+			alias="CountVO" />
+	</typeAliases>
 </configuration>

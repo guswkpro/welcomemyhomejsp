@@ -9,7 +9,28 @@ public class MagazineVO {
 	private int magazine_like_count;
 	private int magazine_comment_count;
 	private int magazine_hit_count;
+	private int magazine_total_count;
+	private int magazine_like_check;
+	private int magazine_comment_check;
 	
+	public int getMagazine_total_count() {
+		return magazine_total_count;
+	}
+	public void setMagazine_total_count(int magazine_total_count) {
+		this.magazine_total_count = magazine_total_count;
+	}
+	public int getMagazine_like_check() {
+		return magazine_like_check;
+	}
+	public void setMagazine_like_check(int magazine_like_check) {
+		this.magazine_like_check = magazine_like_check;
+	}
+	public int getMagazine_comment_check() {
+		return magazine_comment_check;
+	}
+	public void setMagazine_comment_check(int magazine_comment_check) {
+		this.magazine_comment_check = magazine_comment_check;
+	}
 	public int getMagazine_idx() {
 		return magazine_idx;
 	}
