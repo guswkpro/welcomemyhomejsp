@@ -59,11 +59,9 @@
 						<tr>
 							<th>도면 사진</th>
 							<td style="position: relative">
-							<c:forEach items="${PreinspectionList}" var="preinspection">
 								<div id="base_img" class="wrapper">
-									<img id="plan" src="${preinspection.preinspection_picture_path}" alt="이미지 없음">
+									<img id="plan" src="${PreinspectionList.get(0).getPreinspection_picture_path()}" alt="이미지 없음">
 								</div>
-							</c:forEach>
 							</td>
 						</tr>
 					</form>

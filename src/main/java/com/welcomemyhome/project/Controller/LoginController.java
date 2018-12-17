@@ -36,7 +36,6 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public void Login(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {
 		String result = service.login(request.getParameter("user_id"), request.getParameter("user_pw"));
-		System.out.println(result);
 		if(result.equals("2")) {
 			// NO ID
 			response.setContentType("text/html; charset=UTF-8");

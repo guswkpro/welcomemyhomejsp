@@ -44,7 +44,7 @@ public class PreinspectionCreateController {
 		String user_idx = session.getAttribute("token").toString().split("/")[0];
 		String user_nickname = session.getAttribute("token").toString().split("/")[2];
 		String preinspection_width = request.getParameter("preinspection_width");
-		String preinspection_height = request.getParameter("preinspection_hegiht");
+		String preinspection_height = request.getParameter("preinspection_height");
 		String preinspection_encoded_image = request.getParameter("preinspection_encoded_imgae");
 		String preinspection_picture_path = "";
 

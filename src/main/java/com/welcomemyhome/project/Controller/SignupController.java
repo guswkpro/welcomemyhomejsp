@@ -1,5 +1,8 @@
 package com.welcomemyhome.project.Controller;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Locale;
 
 import javax.inject.Inject;
@@ -42,6 +45,14 @@ public class SignupController {
 		String subscription = "1";
 		String auth = "0";
 		service.signup(id, pw, nickname, subscription, auth);
+		
+		File path = new File(".");
+		System.out.println(System.getProperty("user.dir"));
+		Path currentRelativePath = Paths.get("");
+		String s = currentRelativePath.toAbsolutePath().toString();
+		System.out.println("Current relative path is: " + s);
+		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + nickname).mkdirs();
+		System.out.println(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + nickname + "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		
 		return "home";
 	}

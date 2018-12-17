@@ -22,22 +22,59 @@
 <link rel="stylesheet" type="text/css" href="css/preinspectionCreate.css" />
 
 <title>놀러와 마이홈</title>
+
+<script>
+$(document).ready(function($){
+	var image_width, image_height;
+	
+	function readImage(file) {
+		var reader = new FileReader();
+		var image = new Image();
+		
+		reader.readAsDataURL(file);
+		reader.onload = function(_file) {
+			image.src = _file.target.result;
+			image.onload = function() {
+				image_width = this.width;
+				image_height = this.height;
+				console.log(image_width, image_height);
+			}
+		}
+	}
+	$("#fileselector").change(function(e){
+		var F = this.files;
+		if(F && F[0]) for(var i=0; i<F.length; i++) readImage(F[i]);
+	});
+	$("#btn-preinspectionblueprint").click(function(e) {
+		console.log("click");
+		e.preventDefault();
+		console.log("2");
+		
+		$.post("/addpreinspectionblueprint", {
+			"preinspection_encoded_imgae" : $("#fileselector").attr("name"),
+			"preinspection_width" : image_width,
+			"preinspection_height" : image_height,
+		})
+	});
+});
+</script>
+
 </head>
 <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%">
 	<div class="container preinspectionCreate-div">
 		<table class="table table-bordered">
 			<tbody>
-				<form>
+				<form method="POST" action="/addpreinspectionblueprint">
 					<tr>
 						<th>도면 추가</th>
-						<td><input id='fileselector' type="file"
+						<td><input name="preinspection_encoded_imgae" id='fileselector' type="file"
 							placeholder="이미지를 선택하세요." accept="image/*"/></td>
 					</tr>
 					<tr>
 						<td colspan="2"><input type="button" value="취소" 
 							class="preinspectionCreate-float-right" onclick="location.href = 'http://127.0.0.1:8080/preinspection'"/> 
-							<input type="button"
-							value="등록" class="preinspectionCreate-float-right" onclick="location.href = 'http://127.0.0.1:8080/preinspection'"/></td>
+							<input type="button"  id="btn-preinspectionblueprint"
+							value="등록" class="preinspectionCreate-float-right"/></td>
 					</tr>
 				</form>
 			</tbody>

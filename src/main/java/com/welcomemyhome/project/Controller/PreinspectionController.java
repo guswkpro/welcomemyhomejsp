@@ -39,7 +39,7 @@ public class PreinspectionController {
 		System.out.println(user_idx);
 		List<PreinspectionVO> preinspectionList = preinspectionService.getPreinspectionBlueprint(user_idx);
 		model.addAttribute("PreinspectionList", preinspectionList);
-		System.out.println(preinspectionList);
+		System.out.println(preinspectionList.get(0).getPreinspection_picture_path());
 		return "preinspection";
 	}
 
