@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
@@ -22,23 +23,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.welcomemyhome.project.Service.PreinspectionService;
+import com.welcomemyhome.project.VO.PreinspectionVO;
 
 @Controller
 public class PreinspectionController {
-	@Inject
-	PreinspectionService preinspectionService;
-
 	private static final Logger logger = LoggerFactory.getLogger(PreinspectionController.class);
 
-	@RequestMapping(value = "/preinspection", method = RequestMethod.GET)
-	public String Preinspection(Locale locale, Model model) throws Exception {
+	@Inject
+	private PreinspectionService preinspectionService;
 
+	@RequestMapping(value = "/preinspection", method = RequestMethod.GET)
+	public String Preinspection(Locale locale, Model model, HttpServletRequest request, HttpSession session)
+			throws Exception {
 		logger.info("Preinspection");
 
+		String user_idx = session.getAttribute("token").toString().split("/")[0];
+
+		List<PreinspectionVO> preinspectionList = preinspectionService.getPreinspectionBlueprint(user_idx);
+		model.addAttribute("PreinspectionList", preinspectionList);
+		System.out.println(preinspectionList);
 		return "preinspection";
 	}
 
-	@RequestMapping(value = "/addpreinspectionblueprint", method = RequestMethod.POST)
+	@RequestMapping(value = "/addpreinspectionmodal", method = RequestMethod.POST)
 	@ResponseBody
 	public String addEstimateAnswer(HttpServletRequest request, HttpSession session) throws Exception {
 		String user_nickname = session.getAttribute("token").toString().split("/")[2];
@@ -55,16 +62,23 @@ public class PreinspectionController {
 
 		File path = new File(".");
 
-		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint").mkdirs();
-		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint/" + sdf.format(date).toString()).mkdirs();
+		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1)
+				+ "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint").mkdirs();
+		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1)
+				+ "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint/"
+				+ sdf.format(date).toString()).mkdirs();
 		for (int i = 0; i < pin_encoded_image.split(",").length; i++) {
 			byte[] data = Base64.decodeBase64(pin_encoded_image.split(",")[i].getBytes());
-			Path destinationFile = Paths.get(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint/" + sdf.format(date).toString(), sdf.format(date).toString() + "_" + i + ".jpg");
+			Path destinationFile = Paths.get(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1)
+					+ "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint/"
+					+ sdf.format(date).toString(), sdf.format(date).toString() + "_" + i + ".jpg");
 			Files.write(destinationFile, data);
-			pin_picture_path += "./public/" + user_nickname + "/blueprint/" + sdf.format(date).toString() + "/" + sdf.format(date).toString() + "_" + i + ".jpg";
+			pin_picture_path += "./public/" + user_nickname + "/blueprint/" + sdf.format(date).toString() + "/"
+					+ sdf.format(date).toString() + "_" + i + ".jpg";
 		}
 
-		preinspectionService.addPreinspectionModal(preinspection_idx, pin_picture_path, pin_type, pin_content, pin_X, pin_Y);
-		return "이건 니네가 해야대";
+		preinspectionService.addPreinspectionModal(preinspection_idx, pin_picture_path, pin_type, pin_content, pin_X,
+				pin_Y);
+		return "preinspection";
 	}
 }

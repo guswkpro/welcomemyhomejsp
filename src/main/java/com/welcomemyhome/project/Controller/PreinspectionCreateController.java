@@ -67,6 +67,6 @@ public class PreinspectionCreateController {
 		preinspection_date = sdf.format(date).toString();
 
 		preinspectionService.addPreinspectionBlueprint(preinspection_date, preinspection_picture_path, preinspection_width, preinspection_height, user_idx);
-		return "이건 니네가 해야대";
+		return "/preinspection";
 	}
 }

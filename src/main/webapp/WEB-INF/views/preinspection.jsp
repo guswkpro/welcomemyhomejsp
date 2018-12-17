@@ -32,7 +32,7 @@
 <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0"width="100%" height="100%">
 	<div class="container preinspection-div">
 		<div id="div-pin">
-			<img id="my_pin" class="pin-img" src="./public/pin.png" sytle="position:absolute">
+			<img id="my_pin" class="pin-img" src="./image/pin.png" sytle="position:absolute">
 		</div>
 		<div style="position: relative">
 			<table class="table table-bordered">
@@ -42,7 +42,15 @@
 							<th>도면 사진</th>
 							<td style="position: relative">
 								<div id="base_img" class="wrapper">
-									<img id="plan" src="./public/도면.JPG" alt="이미지 없음">
+									<img id="plan" src="./image/도면.JPG" alt="이미지 없음">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>도면 사진</th>
+							<td style="position: relative">
+								<div id="base_img" class="wrapper">
+									<img id="plan" src="${PreinspectionList[0].preinspection_picture_path}" alt="이미지 없음">
 								</div>
 							</td>
 						</tr>

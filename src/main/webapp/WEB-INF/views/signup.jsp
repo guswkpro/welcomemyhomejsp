@@ -27,20 +27,12 @@
 $(document).ready(function() {
 	$("#id_confirm").unbind("click").click(function(e) {
 		e.preventDefault();
-		fn_login();
+		$("#id_confirm").submit();
 	});
 });
 
-function fn_login() {
-	if($("#user_id").val().length < 1) {
-		alert("아이디를 입력해주세요.");
-	}
-	else if($("#user_password").val().length < 1) {
-		alert("비밀번호를 입력해주세요.");
-	}
-	else {
-		$("#frm").submit();
-	}
+function fn_IDcheck() {
+	$("#id_confirm").submit();
 }
 </script>
 
