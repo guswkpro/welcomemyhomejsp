@@ -88,7 +88,8 @@ public class MagazineServiceImpl implements MagazineService {
 	/* DELETE */
 	@Override
 	public void deleteMagazineLike(String user_idx, String magazine_idx) throws Exception {
-
+		dao.deleteMagazineLike(user_idx, magazine_idx);
+		dao.editMagazineLikeCount(magazine_idx, -1);
 	}
 
 	@Override

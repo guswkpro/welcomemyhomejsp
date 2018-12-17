@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mapper.PreinspectionMapper">
+	<select id="getPreinspectionBlueprint" resultType="PreinspectionVO">
+		SELECT * FROM
+		stweb.stweb_preinspections where user_idx = #{user_idx}
+	</select>
+	<select id="getPreinspectionPin" resultType="PreinspectionVO">
+		SELECT * FROM
+		stweb.stweb_preinspection_pins where preinspection_idx =
+		#{preinspection_idx}
+	</select>
+	<select id="getPreinspectionModal" resultType="PreinspectionVO">
+		SELECT * FROM
+		stweb.stweb_preinspection_pins where pin_idx = #{pin_idx}
+	</select>
+
+	<insert id="addPreinspectionBlueprint">
+		INSERT INTO stweb.stweb_preinspections
+		(preinspection_date,
+		preinspection_picture_path, preinspection_width,
+		preinspection_height,
+		user_idx) VALUES (#{preinspection_date},
+		#{preinspection_picture_path}, #{preinspection_width},
+		#{preinspection_height}, #{user_idx})
+	</insert>
+
+	<update id="addPreinspectionModal">
+		INSERT INTO stweb.stweb_preinspection_pins
+		(preinspection_idx,
+		pin_picture_path, pin_type, pin_content, pin_X,
+		pin_Y) VALUES
+		(#{preinspection_idx}, #{pin__picture_path}, #{pin_type},
+		#{pin_content}, #{pin_X}, #{pin_Y})
+	</update>
+</mapper>

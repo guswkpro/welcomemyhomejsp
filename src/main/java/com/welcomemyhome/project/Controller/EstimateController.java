@@ -71,36 +71,4 @@ public class EstimateController {
 		estimateService.addEstimate(estimate_title, estimate_picture_path, estimate_content, estimate_date, estimate_address, user_idx);
 		return "이건 니네가 해야대";
 	}
-
-	@RequestMapping(value = "/addestimateanswer", method = RequestMethod.POST)
-	@ResponseBody
-	public String addEstimateAnswer(HttpServletRequest request, HttpSession session) throws Exception {
-		String user_idx = session.getAttribute("token").toString().split("/")[0];
-		String answer_title = request.getParameter("answer_title");
-		String answer_content = request.getParameter("answer_content");
-		String answer_encoded_image = request.getParameter("answer_encoded_image");
-		String estimate_idx = request.getParameter("estimate_idx");
-		String answer_picture_path = "";
-
-		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
-		String answer_date = sdf.format(date).toString();
-
-		File path = new File(".");
-
-		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + session.getAttribute("token").toString().split("/")[2] + "/estimateanswer").mkdirs();
-		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + session.getAttribute("token").toString().split("/")[2] + "/estimateanswer/" + sdf.format(date).toString()).mkdirs();
-		for (int i = 0; i < answer_encoded_image.split(",").length; i++) {
-			byte[] data = Base64.decodeBase64(answer_encoded_image.split(",")[i].getBytes());
-			Path destinationFile = Paths.get(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + session.getAttribute("token").toString().split("/")[2] + "/estimateanswer/" + sdf.format(date).toString(), sdf.format(date).toString() + "_" + i + ".jpg");
-			Files.write(destinationFile, data);
-			answer_picture_path += "./public/" + session.getAttribute("token").toString().split("/")[2] + "/estimateanswer/" + sdf.format(date).toString() + "/" + sdf.format(date).toString() + "_" + i + ".jpg" + ",";
-		}
-
-		sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		answer_date = sdf.format(date).toString();
-
-		estimateService.addEstimateAnswer(answer_title, answer_picture_path, answer_content, answer_date, estimate_idx, user_idx);
-		return "이건 니네가 해야대";
-	}
 }
