@@ -27,7 +27,7 @@ public class EstimateServiceImpl implements EstimateService {
 		estimateList.get(0).setEstiamte_total_count(Integer.parseInt(estimateDAO.getEstimateCount().get(0).getCount()));
 
 		for (int i = 0; i < estimateList.size(); i++) {
-			estimateList.get(i).setUser_nickname(userDAO.getUserInformation(estimateList.get(i).getUser_idx() + "").get(i).getUser_nickname());
+			estimateList.get(i).setUser_nickname(userDAO.getUserInformation(estimateList.get(i).getUser_idx() + "").get(0).getUser_nickname());
 		}
 
 		return estimateList;
