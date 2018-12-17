@@ -59,7 +59,7 @@ public class UserDAOImpl implements UserDAO {
 		parameters.put("user_join_date", date);
 		parameters.put("user_subscription", subscription);
 		parameters.put("user_auth", auth);
-		sqlSession.selectList(Namespace + ".getNicknameCheck", parameters);
+		sqlSession.selectList(Namespace + ".signup", parameters);
 	}
 
 	/* PUT */
