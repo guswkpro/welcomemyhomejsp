@@ -33,17 +33,16 @@ public class PreinspectionController {
 	private PreinspectionService preinspectionService;
 
 	@RequestMapping(value = "/preinspection", method = RequestMethod.GET)
-	public String Preinspection(Locale locale, Model model, HttpServletRequest request, HttpSession session)
-			throws Exception {
+	public String Preinspection(Locale locale, Model model, HttpServletRequest request, HttpSession session) throws Exception {
 		logger.info("Preinspection");
 		String user_idx = session.getAttribute("token").toString().split("/")[0];
 		System.out.println(user_idx);
-			List<PreinspectionVO> preinspectionList = preinspectionService.getPreinspectionBlueprint(user_idx);
-			model.addAttribute("PreinspectionList", preinspectionList);
-			System.out.println(preinspectionList);
+		List<PreinspectionVO> preinspectionList = preinspectionService.getPreinspectionBlueprint(user_idx);
+		model.addAttribute("PreinspectionList", preinspectionList);
+		System.out.println(preinspectionList);
 		return "preinspection";
 	}
-	
+
 //	@RequestMapping(value ="/getpreinspectionblueprint", method = RequestMethod.GET)
 //	public void Preinspectionblueprint(Model model, HttpSession session) throws Exception {
 //		String user_idx = session.getAttribute("token").toString().split("/")[0];
@@ -70,23 +69,16 @@ public class PreinspectionController {
 
 		File path = new File(".");
 
-		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1)
-				+ "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint").mkdirs();
-		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1)
-				+ "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint/"
-				+ sdf.format(date).toString()).mkdirs();
+		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint").mkdirs();
+		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint/" + sdf.format(date).toString()).mkdirs();
 		for (int i = 0; i < pin_encoded_image.split(",").length; i++) {
 			byte[] data = Base64.decodeBase64(pin_encoded_image.split(",")[i].getBytes());
-			Path destinationFile = Paths.get(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1)
-					+ "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint/"
-					+ sdf.format(date).toString(), sdf.format(date).toString() + "_" + i + ".jpg");
+			Path destinationFile = Paths.get(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint/" + sdf.format(date).toString(), sdf.format(date).toString() + "_" + i + ".jpg");
 			Files.write(destinationFile, data);
-			pin_picture_path += "./public/" + user_nickname + "/blueprint/" + sdf.format(date).toString() + "/"
-					+ sdf.format(date).toString() + "_" + i + ".jpg";
+			pin_picture_path += "./public/" + user_nickname + "/blueprint/" + sdf.format(date).toString() + "/" + sdf.format(date).toString() + "_" + i + ".jpg";
 		}
 
-		preinspectionService.addPreinspectionModal(preinspection_idx, pin_picture_path, pin_type, pin_content, pin_X,
-				pin_Y);
+		preinspectionService.addPreinspectionModal(preinspection_idx, pin_picture_path, pin_type, pin_content, pin_X, pin_Y);
 		return "preinspection";
 	}
 }
