@@ -36,14 +36,22 @@ public class PreinspectionController {
 	public String Preinspection(Locale locale, Model model, HttpServletRequest request, HttpSession session)
 			throws Exception {
 		logger.info("Preinspection");
-
 		String user_idx = session.getAttribute("token").toString().split("/")[0];
-
-		List<PreinspectionVO> preinspectionList = preinspectionService.getPreinspectionBlueprint(user_idx);
-		model.addAttribute("PreinspectionList", preinspectionList);
-		System.out.println(preinspectionList);
+		System.out.println(user_idx);
+			List<PreinspectionVO> preinspectionList = preinspectionService.getPreinspectionBlueprint(user_idx);
+			model.addAttribute("PreinspectionList", preinspectionList);
+			System.out.println(preinspectionList);
 		return "preinspection";
 	}
+	
+//	@RequestMapping(value ="/getpreinspectionblueprint", method = RequestMethod.GET)
+//	public void Preinspectionblueprint(Model model, HttpSession session) throws Exception {
+//		String user_idx = session.getAttribute("token").toString().split("/")[0];
+//
+//		List<PreinspectionVO> preinspectionList = preinspectionService.getPreinspectionBlueprint(user_idx);
+//		model.addAttribute("PreinspectionList", preinspectionList);
+//		System.out.println(preinspectionList);
+//	}
 
 	@RequestMapping(value = "/addpreinspectionmodal", method = RequestMethod.POST)
 	@ResponseBody

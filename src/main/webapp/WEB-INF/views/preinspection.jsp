@@ -28,6 +28,15 @@
 <link rel="stylesheet" type="text/css" href="css/preinspection.css" />
 
 <title>놀러와 마이홈</title>
+
+<script>
+//$(document).ready(function() {
+//	$.get("/getpreinspectionblueprint"), fucntion(result){
+//		console.log(result);
+//	}
+//})
+</script>
+
 </head>
 <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0"width="100%" height="100%">
 	<div class="container preinspection-div">
@@ -46,12 +55,15 @@
 								</div>
 							</td>
 						</tr>
+						
 						<tr>
 							<th>도면 사진</th>
 							<td style="position: relative">
+							<c:forEach items="${PreinspectionList}" var="preinspection">
 								<div id="base_img" class="wrapper">
-									<img id="plan" src="${PreinspectionList[0].preinspection_picture_path}" alt="이미지 없음">
+									<img id="plan" src="${preinspection.preinspection_picture_path}" alt="이미지 없음">
 								</div>
+							</c:forEach>
 							</td>
 						</tr>
 					</form>
