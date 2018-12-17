@@ -1,9 +1,11 @@
 package com.welcomemyhome.project.Controller;
 
+import java.io.PrintWriter;
 import java.util.Locale;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -32,9 +34,33 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	@ResponseBody
-	public String Login(HttpServletRequest request, HttpSession session) throws Exception {
-		session.setAttribute("token", service.login(request.getParameter("user_id"), request.getParameter("user_pw")));
-		return "home";
+	public void Login(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {
+		String result = service.login(request.getParameter("user_id"), request.getParameter("user_pw"));
+		System.out.println(result);
+		if(result.equals("2")) {
+			// NO ID
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.print("<script>alert('로그인에 실패하였습니다.'); history.go(-1);</script>");
+			out.flush();
+		} else if(result.equals("3")) {
+			// WRONG PW
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.print("<script>alert('로그인에 실패하였습니다.'); history.go(-1);</script>");
+			out.flush();
+		} else if(result.equals("4")) {
+			// 탈퇴
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.print("<script>alert('로그인에 실패하였습니다.'); history.go(-1);</script>");
+			out.flush();
+		} else {
+			session.setAttribute("token", service.login(request.getParameter("user_id"), request.getParameter("user_pw")));
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.print("<script>alert('로그인에 성공하였습니다.'); location.href='/';</script>");
+			out.flush();
+		}
 	}
 }

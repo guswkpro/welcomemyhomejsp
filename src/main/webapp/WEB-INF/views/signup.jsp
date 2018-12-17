@@ -22,10 +22,31 @@
 <link rel="stylesheet" type="text/css" href="css/nav.css" />
 <link rel="stylesheet" type="text/css" href="css/signup.css" />
 <title>놀러와 마이홈</title>
+
+<script>
+$(document).ready(function() {
+	$("#id_confirm").unbind("click").click(function(e) {
+		e.preventDefault();
+		fn_login();
+	});
+});
+
+function fn_login() {
+	if($("#user_id").val().length < 1) {
+		alert("아이디를 입력해주세요.");
+	}
+	else if($("#user_password").val().length < 1) {
+		alert("비밀번호를 입력해주세요.");
+	}
+	else {
+		$("#frm").submit();
+	}
+}
+</script>
+
 </head>
 
-<body cellpadding="0" cellspacing="0" marginleft="0" margintop="0"
-	width="100%" height="100%">
+<body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%">
 
 	<div class="card align-middle"
 		style="width: 20rem; height: 27rem; border-radius: 20px;">
