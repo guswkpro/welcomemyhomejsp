@@ -32,23 +32,23 @@
 				<form>
 					<tr>
 						<th>제목</th>
-						<td><input type="text" placeholder="제목을 입력하세요. "
+						<td><input type="text" name="estimate_title" placeholder="제목을 입력하세요. "
 							class="form-control"/></td>
 					</tr>
 					<tr>
 						<th>주소</th>
-						<td><input type="text" placeholder="주소를 입력하세요. "
+						<td><input type="text" name="address" placeholder="주소를 입력하세요. "
 							class="form-control"/></td>
 					</tr>
 					<tr>
 						<th>사진</th>
 						<td><input id='fileselector' type="file"
-							placeholder="이미지를 선택하세요." accept="image/*" multiple /></td>
+							name="estimate_encoded_image" placeholder="이미지를 선택하세요." accept="image/*" multiple /></td>
 					</tr>
 					<tr>
 						<th>내용</th>
 						<td><textarea cols="10" rows="10" placeholder="내용을 입력하세요."
-								class="form-control"></textarea></td>
+								name="estimate_content" class="form-control"></textarea></td>
 					</tr>
 					<tr>
 						<td colspan="2">

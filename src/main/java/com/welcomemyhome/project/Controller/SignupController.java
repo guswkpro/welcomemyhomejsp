@@ -2,6 +2,7 @@ package com.welcomemyhome.project.Controller;
 
 import java.util.Locale;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,6 +23,7 @@ import com.welcomemyhome.project.VO.UserVO;
 public class SignupController {
 	private static final Logger logger = LoggerFactory.getLogger(SignupController.class);
 
+	@Inject
 	private UserService service;
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
@@ -33,15 +35,14 @@ public class SignupController {
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	@ResponseBody
-	public String Signup(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setCharacterEncoding("EUC-KR");	
+	public String Signup(HttpServletRequest request, Model model) throws Exception {
 		String id = request.getParameter("user_id");
 		String pw = request.getParameter("user_pw");
 		String nickname = request.getParameter("user_nickname");
 		String subscription = "1";
 		String auth = "0";
 		service.signup(id, pw, nickname, subscription, auth);
-		return "1";
+		
+		return "redirect";
 	}
 }

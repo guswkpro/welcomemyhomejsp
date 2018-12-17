@@ -69,7 +69,7 @@ public class EstimateController {
 		estimate_date = sdf.format(date).toString();
 
 		estimateService.addEstimate(estimate_title, estimate_picture_path, estimate_content, estimate_date, estimate_address, user_idx);
-		return "이건 니네가 해야대";
+		return "/estimatelist?offest=0";
 	}
 
 	@RequestMapping(value = "/addestimateanswer", method = RequestMethod.POST)

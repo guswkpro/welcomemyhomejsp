@@ -45,7 +45,7 @@ public class UserDAOImpl implements UserDAO {
 	public List<UserVO> getNickNameCheck(String nickname) throws Exception {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("user_nickname", nickname);
-		return sqlSession.selectList(Namespace + ".getNickNameCheck", parameters);
+		return sqlSession.selectList(Namespace + ".getNicknameCheck", parameters);
 	}
 
 	/* POST */
@@ -59,7 +59,7 @@ public class UserDAOImpl implements UserDAO {
 		parameters.put("user_join_date", date);
 		parameters.put("user_subscription", subscription);
 		parameters.put("user_auth", auth);
-		sqlSession.selectList(Namespace + ".getNickNameCheck", parameters);
+		sqlSession.selectList(Namespace + ".getNicknameCheck", parameters);
 	}
 
 	/* PUT */
