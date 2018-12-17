@@ -14,7 +14,7 @@
 	</select>
 	<select id="getUserInformation" resultType="UserVO">
 		SELECT * FROM
-		stweb.stweb_users where user_id = #{user_idx}
+		stweb.stweb_users where user_idx = #{user_idx}
 	</select>
 	<select id="getIDCheck" resultType="UserVO">
 		SELECT * FROM

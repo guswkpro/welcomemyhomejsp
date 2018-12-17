@@ -32,11 +32,12 @@ public class PreinspectionServiceImpl implements PreinspectionService {
 
 	/* POST */
 	@Override
-	public void addPreinspectionBlueprint(String preinspection_date, String preinspection_picture_path, String preinspection_width, String preinspection_height, String user_idx) {
+	public void addPreinspectionBlueprint(String preinspection_date, String preinspection_picture_path, String preinspection_width, String preinspection_height, String user_idx) throws Exception {
+		preinspectionDAO.addPreinspectionBlueprint(preinspection_date, preinspection_picture_path, preinspection_width, preinspection_height, user_idx);
 	}
 
 	@Override
-	public void addPreinspectionModal(String preinspection_idx, String pin_picture_path, String pin_type, String pin_content, String pin_X, String pin_Y) {
+	public void addPreinspectionModal(String preinspection_idx, String pin_picture_path, String pin_type, String pin_content, String pin_X, String pin_Y) throws Exception {
+		preinspectionDAO.addPreinspectionModal(preinspection_idx, pin_picture_path, pin_type, pin_content, pin_X, pin_Y);
 	}
-
 }
