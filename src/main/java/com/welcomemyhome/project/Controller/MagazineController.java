@@ -48,6 +48,15 @@ public class MagazineController implements ServletContextAware {
 		return "magazine";
 	}
 
+	@RequestMapping(value = "/magazinedetail", method = RequestMethod.GET)
+	public String Magazinedetail(Locale locale, Model model, @RequestParam int offset, HttpSession session)
+			throws Exception {
+
+		logger.info("Magazinedetail");
+
+		return "magazinedetail";
+	}
+
 	@Override
 	public void setServletContext(ServletContext servletContext) {
 		// TODO Auto-generated method stub

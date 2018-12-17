@@ -25,14 +25,13 @@
 </head>
 <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%">
 	<!-- Page Content -->
-	<div class="container" style="margin-top: 130px;">
+	<div class="container" style="margin-top: 30px;">
 		<div class="row" style="margin-top: 30px;">
 			<c:forEach items="${MagazineList}" var="magazine">
 				<div class="col-lg-4 col-sm-6 portfolio-item">
-
-					<div class="card" style="height: 280px; width: 348px; float: left;">
-						<img class="card-img-top" style="height: 220px; width: 100%;" onclick="location.href='http://13.124.196.226:3000/magazinedetail'">
-						<div class="card-body">
+					<div class="card" style="height: 320px; width: 348px; float: left;">
+						<img class="card-img-top" src="${magazine.magazine_thumbnail_path}" style="height: 220px; width: 100%;" onclick="location.href='http://127.0.0.1:8080/magazinedetail?offset=0'">
+						<div class="card-body list-body">
 							<table style="width: 100%;">
 								<tr>
 									<td style="width: 70%;">
@@ -54,7 +53,6 @@
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</c:forEach>
 		</div>
