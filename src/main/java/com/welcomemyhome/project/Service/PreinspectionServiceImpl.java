@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.stereotype.Service;
+
 import com.welcomemyhome.project.DAO.PreinspectionDAO;
 import com.welcomemyhome.project.VO.PreinspectionVO;
 
+@Service
 public class PreinspectionServiceImpl implements PreinspectionService {
 	@Inject
 	private PreinspectionDAO preinspectionDAO;
