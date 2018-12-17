@@ -43,6 +43,6 @@ public class SignupController {
 		String auth = "0";
 		service.signup(id, pw, nickname, subscription, auth);
 		
-		return "redirect";
+		return "home";
 	}
 }

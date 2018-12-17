@@ -35,6 +35,6 @@ public class LoginController {
 	@ResponseBody
 	public String Login(HttpServletRequest request, HttpSession session) throws Exception {
 		session.setAttribute("token", service.login(request.getParameter("user_id"), request.getParameter("user_pw")));
-		return "1";
+		return "home";
 	}
 }

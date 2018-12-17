@@ -19,6 +19,27 @@
 <title>놀러와 마이홈 - 로그인</title>
 <script src="https://code.angularjs.org/1.2.9/angular.min.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+<script>
+$(document).ready(function() {
+	$("#btn-Yes").unbind("click").click(function(e) {
+		e.preventDefault();
+		fn_login();
+	});
+});
+
+function fn_login() {
+	if($("#user_id").val().length < 1) {
+		alert("아이디를 입력해주세요.");
+	}
+	else if($("#user_password").val().length < 1) {
+		alert("비밀번호를 입력해주세요.");
+	}
+	else {
+		$("#frm").submit();
+	}
+}
+</script>
 </head>
 
 <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%">
@@ -28,7 +49,7 @@
 			<h2 class="card-title text-center" style="color: #113366;">놀러와마이홈</h2>
 		</div>
 		<div class="card-body">
-			<form class="form-signin" method="POST">
+			<form class="form-signin" id="frm" method="POST">
 				<h5 class="form-signin-heading"></h5>
 				<label for="inputEmail" class="sr-only">아이디입력</label> <input type="text" name="user_id" id="user_id" class="form-control" placeholder="아이디 입력" required autofocus><br /> <label for="inputPassword" class="sr-only">패스워드입력</label> <input type="password" name="user_pw" id="user_password" class="form-control" placeholder="패스워드 입력" required><br>
 				<div>
