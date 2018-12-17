@@ -51,7 +51,7 @@
 		estimate_address,
 		estimate_answer_count, user_idx) VALUES
 		(#{estimate_title}, #{estimate_picture_path}, #{estimate_content},
-		#{date}, #{estimate_address}, #{estimate_answer_count}, #{user_idx})
+		#{estimate_date}, #{estimate_address}, 0, #{user_idx})
 	</insert>
 	<insert id="addEstimateAnswer">
 		INSERT INTO stweb.stweb_estimate_answers

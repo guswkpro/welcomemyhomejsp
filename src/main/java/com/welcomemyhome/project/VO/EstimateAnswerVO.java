@@ -6,6 +6,7 @@ public class EstimateAnswerVO {
 	private String answer_picture_path;
 	private String answer_content;
 	private String answer_date;
+	private String user_nickname;
 	private int answer_total_count;
 	private int estimate_idx;
 	private int user_idx;
@@ -72,5 +73,13 @@ public class EstimateAnswerVO {
 
 	public void setAnswer_total_count(int answer_total_count) {
 		this.answer_total_count = answer_total_count;
+	}
+
+	public String getUser_nickname() {
+		return user_nickname;
+	}
+
+	public void setUser_nickname(String user_nickname) {
+		this.user_nickname = user_nickname;
 	}
 }

@@ -7,6 +7,7 @@ public class EstimateVO {
 	private String estimate_content;
 	private String estimate_date;
 	private String estimate_address;
+	private String user_nickname;
 	private int estimate_answer_count;
 	private int estiamte_total_count;
 	private int user_idx;
@@ -81,5 +82,13 @@ public class EstimateVO {
 
 	public void setEstiamte_total_count(int estiamte_total_count) {
 		this.estiamte_total_count = estiamte_total_count;
+	}
+
+	public String getUser_nickname() {
+		return user_nickname;
+	}
+
+	public void setUser_nickname(String user_nickname) {
+		this.user_nickname = user_nickname;
 	}
 }

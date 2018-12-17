@@ -7,7 +7,7 @@
 	<select id="getMagazineList" resultType="MagazineVO">
 		SELECT * FROM
 		stweb.stweb_magazines order by magazine_idx DESC limit
-		#{offset}, 15
+		#{offset}, 6
 	</select>
 	<select id="getMagazineDetail" resultType="MagazineVO">
 		SELECT * FROM

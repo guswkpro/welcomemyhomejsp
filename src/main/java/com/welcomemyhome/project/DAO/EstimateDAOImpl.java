@@ -91,10 +91,11 @@ public class EstimateDAOImpl implements EstimateDAO {
 	}
 
 	@Override
-	public void addEstimateAnswer(String answer_title, String answer_picture_path, String answer_date, String estimate_idx, String user_idx) throws Exception {
+	public void addEstimateAnswer(String answer_title, String answer_picture_path, String answer_content, String answer_date, String estimate_idx, String user_idx) throws Exception {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("answer_title", answer_title);
 		parameters.put("answer_picture_path", answer_picture_path);
+		parameters.put("answer_content", answer_content);
 		parameters.put("answer_date", answer_date);
 		parameters.put("estimate_idx", estimate_idx);
 		parameters.put("user_idx", user_idx);

@@ -1,13 +1,13 @@
 package com.welcomemyhome.project.VO;
 
 public class CountVO {
-	private String count;
+	private String cnt;
 
 	public String getCount() {
-		return count;
+		return cnt;
 	}
 
-	public void setCount(String count) {
-		this.count = count;
+	public void setCount(String cnt) {
+		this.cnt = cnt;
 	}
 }

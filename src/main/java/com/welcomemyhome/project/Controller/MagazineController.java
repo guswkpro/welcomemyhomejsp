@@ -37,10 +37,10 @@ public class MagazineController implements ServletContextAware {
 
 		List<MagazineVO> magazineList;
 		System.out.println(session.getAttribute("token"));
-		if (session.getAttribute("token").toString().equals("null")) {
-			magazineList = service.getMagazineList(offset, session.getAttribute("token").toString().split("/")[0]);
-		} else {
+		if (session.getAttribute("token") == null) {
 			magazineList = service.getMagazineList(offset, "undefined");
+		} else {
+			magazineList = service.getMagazineList(offset, session.getAttribute("token").toString().split("/")[0]);
 		}
 
 		model.addAttribute("MagazineList", magazineList);

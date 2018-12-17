@@ -27,7 +27,7 @@ public interface EstimateDAO {
 	/* POST */
 	public void addEstimate(String estimate_title, String estimate_picture_path, String estimate_content, String estimate_date, String estimate_address, String user_idx) throws Exception;
 
-	public void addEstimateAnswer(String answer_title, String answer_picture_path, String answer_date, String estimate_idx, String user_idx) throws Exception;
+	public void addEstimateAnswer(String answer_title, String answer_picture_path, String answer_content, String answer_date, String estimate_idx, String user_idx) throws Exception;
 
 	/* PUT */
 	public void editEstimateCount(String estimate_idx) throws Exception;

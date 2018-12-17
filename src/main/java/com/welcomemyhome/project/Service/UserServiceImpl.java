@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
 
 					dao.editUserConnectDate(userList.get(0).getUser_idx(), sdf.format(date).toString());
 
-					return userList.get(0).getUser_idx() + "/" + userList.get(0).getUser_auth(); // SUCCESS
+					return userList.get(0).getUser_idx() + "/" + userList.get(0).getUser_auth() + "/" + userList.get(0).getUser_nickname(); // SUCCESS
 				} else {
 					return "3"; // WRONG PW
 				}
