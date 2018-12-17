@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.welcomemyhome.project.VO.PreinspectionPinVO;
 import com.welcomemyhome.project.VO.PreinspectionVO;
 
 @Repository
@@ -27,14 +28,14 @@ public class PreinspectionDAOImpl implements PreinspectionDAO {
 	}
 
 	@Override
-	public List<PreinspectionVO> getPreinspectionPin(String preinspection_idx) throws Exception {
+	public List<PreinspectionPinVO> getPreinspectionPin(String preinspection_idx) throws Exception {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("preinspection_idx", preinspection_idx);
 		return sqlSession.selectList(Namespace + ".getPreinspectionPin", parameters);
 	}
 
 	@Override
-	public List<PreinspectionVO> getPreinspectionModal(String pin_idx) throws Exception {
+	public List<PreinspectionPinVO> getPreinspectionModal(String pin_idx) throws Exception {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("pin_idx", pin_idx);
 		return sqlSession.selectList(Namespace + ".getPreinspectionModal", parameters);

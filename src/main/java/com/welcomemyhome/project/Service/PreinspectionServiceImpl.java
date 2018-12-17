@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.welcomemyhome.project.DAO.PreinspectionDAO;
+import com.welcomemyhome.project.VO.PreinspectionPinVO;
 import com.welcomemyhome.project.VO.PreinspectionVO;
 
 @Service
@@ -21,12 +22,12 @@ public class PreinspectionServiceImpl implements PreinspectionService {
 	}
 
 	@Override
-	public List<PreinspectionVO> getPreinspectionPin(String preinspection_idx) throws Exception {
+	public List<PreinspectionPinVO> getPreinspectionPin(String preinspection_idx) throws Exception {
 		return preinspectionDAO.getPreinspectionPin(preinspection_idx);
 	}
 
 	@Override
-	public List<PreinspectionVO> getPreinspectionModal(String pin_idx) throws Exception {
+	public List<PreinspectionPinVO> getPreinspectionModal(String pin_idx) throws Exception {
 		return preinspectionDAO.getPreinspectionModal(pin_idx);
 	}
 
