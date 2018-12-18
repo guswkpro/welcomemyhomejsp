@@ -57,9 +57,9 @@ public class PreinspectionCreateController {
 
 		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint").mkdirs();
 		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint/" + sdf.format(date).toString()).mkdirs();
-		for (int i = 0; i < preinspection_encoded_image.split("!--!").length; i++) {
-			byte[] data = Base64.decodeBase64(preinspection_encoded_image.split("!--!")[i].getBytes());
-			System.out.println(i + " AAAA " + preinspection_encoded_image.split("!--!")[i]);
+		for (int i = 0; i < preinspection_encoded_image.split(",")[1].split("!--!").length; i++) {
+			byte[] data = Base64.decodeBase64(preinspection_encoded_image.split(",")[1].split("!--!")[i].getBytes());
+			System.out.println(i + " AAAA " + preinspection_encoded_image.split(",")[1].split("!--!")[i]);
 			System.out.println(i + " AAAA " + data.toString());
 			Path destinationFile = Paths.get(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint/" + sdf.format(date).toString(), user_nickname + ".jpg");
 			Files.write(destinationFile, data);
@@ -73,7 +73,7 @@ public class PreinspectionCreateController {
 		
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.print("<script>alert('도면 등록에 성공하였습니다.'); history.go(-1);</script>");
+		out.print("<script>alert('도면 등록에 성공하였습니다.');</script>");
 		out.flush();
 		
 		return "/preinspection";

@@ -38,7 +38,7 @@ public class PreinspectionController {
 		String user_idx = session.getAttribute("token").toString().split("/")[0];
 		System.out.println(user_idx);
 		List<PreinspectionVO> preinspectionList = preinspectionService.getPreinspectionBlueprint(user_idx);
-		model.addAttribute("PreinspectionList", preinspectionList);
+		model.addAttribute("PreinspectionBlueprint", preinspectionList.get(0).getPreinspection_picture_path().split(",")[0]);
 		System.out.println(preinspectionList.get(0).getPreinspection_picture_path());
 		return "preinspection";
 	}
