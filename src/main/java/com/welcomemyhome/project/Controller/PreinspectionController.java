@@ -34,13 +34,11 @@ public class PreinspectionController {
 
 	@RequestMapping(value = "/preinspection", method = RequestMethod.GET)
 	public String Preinspection(Locale locale, Model model, HttpServletRequest request, HttpSession session) throws Exception {
-		logger.info("Preinspection");
 		String user_idx = session.getAttribute("token").toString().split("/")[0];
-		System.out.println(user_idx);
 		List<PreinspectionVO> preinspectionList = preinspectionService.getPreinspectionBlueprint(user_idx);
 		model.addAttribute("PreinspectionBlueprint", preinspectionList.get(0).getPreinspection_picture_path().split(",")[0]);
 		System.out.println(preinspectionList.get(0).getPreinspection_picture_path());
-		return "preinspection";
+		return "redirect:/preinspection";
 	}
 
 //	@RequestMapping(value ="/getpreinspectionblueprint", method = RequestMethod.GET)
@@ -53,7 +51,6 @@ public class PreinspectionController {
 //	}
 
 	@RequestMapping(value = "/addpreinspectionmodal", method = RequestMethod.POST)
-	@ResponseBody
 	public String addEstimateAnswer(HttpServletRequest request, HttpSession session) throws Exception {
 		String user_nickname = session.getAttribute("token").toString().split("/")[2];
 		String preinspection_idx = request.getParameter("preinspection_idx");
@@ -79,6 +76,9 @@ public class PreinspectionController {
 		}
 
 		preinspectionService.addPreinspectionModal(preinspection_idx, pin_picture_path, pin_type, pin_content, pin_X, pin_Y);
-		return "preinspection";
+		
+		System.out.println("모달 등록");
+		
+		return "redirect:/preinspection";
 	}
 }
