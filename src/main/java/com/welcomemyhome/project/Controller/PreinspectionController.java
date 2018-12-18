@@ -36,9 +36,11 @@ public class PreinspectionController {
 	public String Preinspection(Locale locale, Model model, HttpServletRequest request, HttpSession session) throws Exception {
 		String user_idx = session.getAttribute("token").toString().split("/")[0];
 		List<PreinspectionVO> preinspectionList = preinspectionService.getPreinspectionBlueprint(user_idx);
+		
 		model.addAttribute("PreinspectionBlueprint", preinspectionList.get(0).getPreinspection_picture_path().split(",")[0]);
-		System.out.println(preinspectionList.get(0).getPreinspection_picture_path());
-		return "redirect:/preinspection";
+		model.addAttribute("preinspection_idx", preinspectionList.get(0).getPreinspection_idx());
+		
+		return "preinspection";
 	}
 
 //	@RequestMapping(value ="/getpreinspectionblueprint", method = RequestMethod.GET)
