@@ -14,6 +14,7 @@
 <!-- jQuery -->
 <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="script/like.js"></script>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/nav.css" />
@@ -23,18 +24,20 @@
 
 <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%">
 	<div class="card card-body align-middle vh-100" style="width: 60%; border-radius: 20px;">
-		<div class="card-title" style="margin-top: 15px;">
-			<table style="width: 100%">
-				<tr>
-					<td>
-						<h4>${MagazineDetail.magazine_title}</h4>
-					</td>
-					<td class="pull-right">
-						<div class="heart" ng-click="pushLike()"></div> 
-					</td>
-				</tr>
-			</table>
-		</div>
+		<form class="pushlike" action="/addmagazinelike?magazine_idx=${MagazineDetail.magazine_idx}" method="POST">
+			<div class="card-title" style="margin-top: 15px;">
+				<table style="width: 100%">
+					<tr>
+						<td>
+							<h4>${MagazineDetail.magazine_title}</h4>
+						</td>
+						<td class="pull-right">
+							<div class="heart" onclick="addmagazinelike() "></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</form>
 
 		<div id="Indicators" class="carousel slide carousel-fade" data-ride="carousel">
 			<div class="carousel-inner" role="listbox">

@@ -82,6 +82,17 @@ public class MagazineController implements ServletContextAware {
 
 		return "redirect:/magazinedetail?magazine_idx=" + magazine_idx;
 	}
+	
+//	@RequestMapping(value = "/addmagazinelike", method = RequestMethod.POST)
+//	public String Login(HttpServletRequest request, HttpServletResponse response, HttpSession session, @RequestParam String magazine_idx)
+//			throws Exception {
+//		String user_idx = session.getAttribute("token").toString().split("/")[0];
+//		request.setCharacterEncoding("UTF-8");
+//		
+//		service.addMagazineComment(request.getParameter("comment_content"), user_idx, magazine_idx);
+//
+//		return "redirect:/magazinedetail?magazine_idx=" + magazine_idx;
+//	}
 
 	@Override
 	public void setServletContext(ServletContext servletContext) {
