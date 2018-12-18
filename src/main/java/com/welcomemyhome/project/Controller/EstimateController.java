@@ -58,8 +58,8 @@ public class EstimateController {
 
 		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + session.getAttribute("token").toString().split("/")[2] + "/estimate").mkdirs();
 		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + session.getAttribute("token").toString().split("/")[2] + "/estimate/" + sdf.format(date).toString()).mkdirs();
-		for (int i = 0; i < estimate_encoded_image.split(",").length; i++) {
-			byte[] data = Base64.decodeBase64(estimate_encoded_image.split(",")[i].getBytes());
+		for (int i = 0; i < estimate_encoded_image.split(",")[1].split("!--!").length; i++) {
+			byte[] data = Base64.decodeBase64(estimate_encoded_image.split(",")[1].split("!--!")[i].getBytes());
 			Path destinationFile = Paths.get(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + session.getAttribute("token").toString().split("/")[2] + "/estimate/" + sdf.format(date).toString(), sdf.format(date).toString() + "_" + i + ".jpg");
 			Files.write(destinationFile, data);
 			estimate_picture_path += "./public/" + session.getAttribute("token").toString().split("/")[2] + "/estimate/" + sdf.format(date).toString() + "/" + sdf.format(date).toString() + "_" + i + ".jpg" + ",";

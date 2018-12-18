@@ -18,27 +18,39 @@ public class UserServiceImpl implements UserService {
 	private UserDAO dao;
 
 	/* GET */
-	public List<UserVO> getUserInformation(String idx) throws Exception{
+	@Override
+	public List<UserVO> getUserInformation(String idx) throws Exception {
 		return dao.getUserIDAuth(idx);
 	}
 
-	public String getIDCheck(String id) throws Exception{
+	@Override
+	public String getIDCheck(String id) throws Exception {
 		List<UserVO> userList = dao.getUserIDAuth(id);
-		
-		if(userList.size() != 0) {
+
+		if (userList.size() != 0) {
 			return "1"; // Already
 		} else {
 			return "2";
 		}
 	}
 
-	public String getNickNameCheck(String nickname) throws Exception{
+	@Override
+	public String getNickNameCheck(String nickname) throws Exception {
 		List<UserVO> userList = dao.getUserIDAuth(nickname);
-		
-		if(userList.size() != 0) {
+
+		if (userList.size() != 0) {
 			return "1"; // Already
 		} else {
 			return "2";
+		}
+	}
+
+	@Override
+	public String loginCheck(String token, String sessionID) throws Exception {
+		if(token.split("/")[3].equals(sessionID)) {
+			return "1";
+		} else {
+			return "0";
 		}
 	}
 

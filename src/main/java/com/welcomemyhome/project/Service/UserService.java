@@ -11,10 +11,12 @@ public interface UserService {
 	public String getIDCheck(String id) throws Exception;
 
 	public String getNickNameCheck(String nickname) throws Exception;
-	
+
+	public String loginCheck(String token, String sessionID) throws Exception;
+
 	/* POST */
 	public String login(String id, String pw) throws Exception;
-	
-    public void signup(String id, String pw, String nickname, String subscription, String auth) throws Exception;
-  
+
+	public void signup(String id, String pw, String nickname, String subscription, String auth) throws Exception;
+
 }

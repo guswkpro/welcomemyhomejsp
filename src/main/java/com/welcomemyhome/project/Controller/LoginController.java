@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,7 +15,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.welcomemyhome.project.Service.UserService;
 
@@ -36,6 +36,7 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public void Login(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {
 		String result = service.login(request.getParameter("user_id"), request.getParameter("user_pw"));
+		
 		if(result.equals("2")) {
 			// NO ID
 			response.setContentType("text/html; charset=UTF-8");
@@ -55,8 +56,11 @@ public class LoginController {
 			out.print("<script>alert('로그인에 실패하였습니다.'); history.go(-1);</script>");
 			out.flush();
 		} else {
+			Cookie storeToken = new Cookie("token", service.login(request.getParameter("user_id"), request.getParameter("user_pw")) + "/" + session.getId());
+			storeToken.setMaxAge(60 * 60 * 24);
 			session.setAttribute("token", service.login(request.getParameter("user_id"), request.getParameter("user_pw")));
 			response.setContentType("text/html; charset=UTF-8");
+			response.addCookie(storeToken);
 			PrintWriter out = response.getWriter();
 			out.print("<script>alert('로그인에 성공하였습니다.'); location.href='/';</script>");
 			out.flush();

@@ -59,8 +59,6 @@ public class PreinspectionCreateController {
 		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint/" + sdf.format(date).toString()).mkdirs();
 		for (int i = 0; i < preinspection_encoded_image.split(",")[1].split("!--!").length; i++) {
 			byte[] data = Base64.decodeBase64(preinspection_encoded_image.split(",")[1].split("!--!")[i].getBytes());
-			System.out.println(i + " AAAA " + preinspection_encoded_image.split(",")[1].split("!--!")[i]);
-			System.out.println(i + " AAAA " + data.toString());
 			Path destinationFile = Paths.get(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint/" + sdf.format(date).toString(), user_nickname + ".jpg");
 			Files.write(destinationFile, data);
 			preinspection_picture_path += "./public/" + user_nickname + "/blueprint/" + sdf.format(date).toString() + "/" + user_nickname + ".jpg,";
