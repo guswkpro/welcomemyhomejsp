@@ -64,8 +64,8 @@
 		</div>
 		<div class="collapse navbar-collapse nav-menu">
 			<ul class="navbar-nav mr-auto nav-ul">
-				<li class="nav-item nav-li-magazine"><a class="nav-a-text3" href='http://127.0.0.1:8080/magazines'>매거진</a></li>
-				<li class="nav-item nav-li"><a class="nav-a-text4" href='http://127.0.0.1:8080/community'>커뮤니티</a></li>
+				<li class="nav-item nav-li-magazine"><a class="nav-a-text3" href='http://127.0.0.1:8080/magazine?offset=0'>매거진</a></li>
+				<li class="nav-item nav-li"><a class="nav-a-text4" href='http://127.0.0.1:8080/community?offset=0'>커뮤니티</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4" href='http://127.0.0.1:8080/preinspection'>사전점검</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4" href='http://127.0.0.1:8080/estimatelist?offset=0'>견적요청</a></li>
 			</ul>

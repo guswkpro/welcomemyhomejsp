@@ -105,22 +105,22 @@
 		</div>
 	</div>
 
-	<nav class="navbar navbar-expand-lg nav" ng-controller="logincheckCtrl">
+	<nav class="navbar navbar-expand-lg nav">
 		<div class="nav-logo">
 			<a class="navbar-bran" href='http://127.0.0.1:8080/'>WMH</a>
 		</div>
 		<div class="collapse navbar-collapse nav-menu">
 			<ul class="navbar-nav mr-auto nav-ul">
 				<li class="nav-item nav-li-magazine"><a class="nav-a-text3" href='http://127.0.0.1:8080/magazine?offset=0'>매거진</a></li>
-				<li class="nav-item nav-li"><a class="nav-a-text4" href='http://127.0.0.1:8080/talk'>커뮤니티</a></li>
-				<li class="nav-item nav-li"><a class="nav-a-text4" href='http://127.0.0.1:8080/'>사전전검</a></li>
-				<li class="nav-item nav-li"><a class="nav-a-text4" href='http://127.0.0.1:8080/estimate' ng-click="checkauth()">견적요청</a></li>
+				<li class="nav-item nav-li"><a class="nav-a-text4" href='http://127.0.0.1:8080/community?offset=0'>커뮤니티</a></li>
+				<li class="nav-item nav-li"><a class="nav-a-text4" href='http://127.0.0.1:8080/preinspection'>사전점검</a></li>
+				<li class="nav-item nav-li"><a class="nav-a-text4" href='http://127.0.0.1:8080/estimatelist?offset=0'>견적요청</a></li>
 			</ul>
 		</div>
-		<div class="nav-div-form" ng-init="load()" ng-style="div_login">
+		<div class="nav-div-form">
 			<form>
-				<button ng-show="showHide_logout" class="btn btn-secondary my-sm-0 nav-button-login" onclick="location.href = 'http://127.0.0.1:8080/login'" type="button">로그인</button>
-				<button ng-show="showHide_logout" class="btn btn-secondary my-sm-0 nav-button-signup" onclick="location.href = 'http://127.0.0.1:8080/signup'" type="button">회원가입</button>
+				<button class="btn btn-secondary my-sm-0 nav-button-login" onclick="location.href = 'http://127.0.0.1:8080/login'" type="button">로그인</button>
+				<button class="btn btn-secondary my-sm-0 nav-button-signup" onclick="location.href = 'http://127.0.0.1:8080/signup'" type="button">회원가입</button>
 			</form>
 		</div>
 	</nav>

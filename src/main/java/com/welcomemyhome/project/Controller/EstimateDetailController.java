@@ -27,11 +27,11 @@ public class EstimateDetailController {
 	public String EstimateDetail(Locale locale, Model model, HttpServletRequest request) throws Exception {
 		
 		
-		List<EstimateVO> EstimateList = estimateDetailService.getEstimateDetail(estimate_idx);
+/*		List<EstimateVO> EstimateList = estimateDetailService.getEstimateDetail(estimate_idx);
 
 		model.addAttribute("EstimateList", EstimateList);
 		
-		logger.info("EstimateDetail");
+		logger.info("EstimateDetail");*/
 
 		return "estimatedetail";
 	}
