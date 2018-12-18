@@ -26,6 +26,7 @@
 <script>
 $(document).ready(function($){
 	var image_width, image_height;
+	var image_src;
 	
 	function readImage(file) {
 		var reader = new FileReader();
@@ -34,6 +35,7 @@ $(document).ready(function($){
 		reader.readAsDataURL(file);
 		reader.onload = function(_file) {
 			image.src = _file.target.result;
+			image_src = image.src;
 			image.onload = function() {
 				image_width = this.width;
 				image_height = this.height;
@@ -51,7 +53,7 @@ $(document).ready(function($){
 		console.log("2");
 		
 		$.post("/addpreinspectionblueprint", {
-			"preinspection_encoded_image" : image.src + "!--!",
+			"preinspection_encoded_image" : image_src + "!--!",
 			"preinspection_width" : image_width,
 			"preinspection_height" : image_height,
 		})
