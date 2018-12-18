@@ -67,6 +67,6 @@ public class EstimateAnswerController {
 		answer_date = sdf.format(date).toString();
 
 		estimateService.addEstimateAnswer(answer_title, answer_picture_path, answer_content, answer_date, estimate_idx, user_idx);
-		return "/estimatelist?offset=0";
+		return "이건 니네가 해야대";
 	}
 }

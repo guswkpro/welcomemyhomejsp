@@ -82,7 +82,7 @@ public class SignupController {
 		
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.print("<script>alert('회원가입에 성공하였습니다.'); history.go(-1);</script>");
+		out.print("<script>alert('회원가입에 성공하였습니다.');</script>");
 		out.flush();
 		
 		return "home";
