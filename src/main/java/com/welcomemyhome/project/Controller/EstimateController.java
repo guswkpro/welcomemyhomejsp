@@ -1,6 +1,7 @@
 package com.welcomemyhome.project.Controller;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -10,6 +11,7 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.binary.Base64;
@@ -39,8 +41,7 @@ public class EstimateController {
 	}
 
 	@RequestMapping(value = "/addestimate", method = RequestMethod.POST)
-	@ResponseBody
-	public String addEstimate(HttpServletRequest request, HttpSession session) throws Exception {
+	public void addEstimate(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {
 		String user_idx = session.getAttribute("token").toString().split("/")[0];
 		String estimate_title = request.getParameter("estimate_title");
 		String estimate_content = request.getParameter("estimate_content");
@@ -69,7 +70,12 @@ public class EstimateController {
 		estimate_date = sdf.format(date).toString();
 
 		estimateService.addEstimate(estimate_title, estimate_picture_path, estimate_content, estimate_date, estimate_address, user_idx);
-		System.out.println("견적요청 등록 성공");
-		return "/estimatelist?offset=0";
+		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print("<script>alert('견적요청을 등록하였습니다.'); location.href='estimatelist>offeset=0'</script>");
+		out.flush();
+		
+//		return 1;
 	}
 }

@@ -45,6 +45,9 @@ $(document).ready(function($) {
 						"estimate_title" : $('#title').val(),
 						"estimate_content" : $('#content').val(),
 						"estimate_address" : $('#address').val()
+					}, function(result){
+						console.log(result);
+						$.jQueryAlert(result);
 					})
 				} else{
 					recourcive(index + 1);
