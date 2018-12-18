@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.welcomemyhome.project.DAO.MagazineDAO;
+import com.welcomemyhome.project.DAO.UserDAO;
 import com.welcomemyhome.project.VO.MagazineCommentVO;
 import com.welcomemyhome.project.VO.MagazineVO;
 
@@ -17,6 +18,9 @@ public class MagazineServiceImpl implements MagazineService {
 
 	@Inject
 	private MagazineDAO dao;
+	
+	@Inject
+	private UserDAO userDAO;
 
 	/* GET */
 	@Override
@@ -62,7 +66,12 @@ public class MagazineServiceImpl implements MagazineService {
 
 	@Override
 	public List<MagazineCommentVO> getMagazineComment(String magazine_idx) throws Exception {
-		return dao.getMagazineComment(magazine_idx);
+		List<MagazineCommentVO> commentList = dao.getMagazineComment(magazine_idx);
+		for (int i = 0; i < commentList.size(); i++) {
+			commentList.get(i).setUser_nickname(userDAO.getUserInformation(commentList.get(0).getUser_idx() + "").get(0).getUser_nickname());
+		}
+
+		return commentList;
 	}
 
 	/* POST */

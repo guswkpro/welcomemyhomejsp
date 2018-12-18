@@ -4,8 +4,17 @@ public class MagazineCommentVO {
 	private int comment_idx;
 	private String comment_content;
 	private String comment_post_date;
+	private String user_nickname;
 	private int magazine_idx;
 	private int user_idx;
+
+	public String getUser_nickname() {
+		return user_nickname;
+	}
+
+	public void setUser_nickname(String user_nickname) {
+		this.user_nickname = user_nickname;
+	}
 
 	public int getComment_idx() {
 		return comment_idx;

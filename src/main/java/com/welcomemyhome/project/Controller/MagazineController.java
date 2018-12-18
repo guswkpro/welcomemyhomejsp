@@ -5,6 +5,8 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.ServletContextAware;
 
+import com.welcomemyhome.project.DAO.MagazineDAO;
 import com.welcomemyhome.project.Service.MagazineService;
 import com.welcomemyhome.project.VO.MagazineVO;
 
@@ -60,14 +63,24 @@ public class MagazineController implements ServletContextAware {
 		} else {
 			magazineList = service.getMagazineDetail(user_idx, magazine_idx + "");
 		}
-		
-		System.out.println(magazineList.get(0).getMagazine_title());
-		System.out.println(magazineList.get(0).getMagazine_picture_path());
-		System.out.println(magazineList.get(0).getMagazine_hit_count());
-		
+
 		model.addAttribute("MagazineDetail", magazineList.get(0));
-		model.addAttribute("MagazinePicture", magazineList);
+		model.addAttribute("MagazineFirstImage", magazineList.get(0).getMagazine_picture_path().split(",")[0]);
+		model.addAttribute("MagazinePaths", magazineList.get(0).getMagazine_picture_path()
+				.substring(magazineList.get(0).getMagazine_picture_path().indexOf(",")));
+		model.addAttribute("MagazineComments", service.getMagazineComment(magazine_idx + ""));
 		return "magazinedetail";
+	}
+
+	@RequestMapping(value = "/addmagazinecomment", method = RequestMethod.POST)
+	public String Login(HttpServletRequest request, HttpServletResponse response, HttpSession session, @RequestParam String magazine_idx)
+			throws Exception {
+		String user_idx = session.getAttribute("token").toString().split("/")[0];
+		request.setCharacterEncoding("UTF-8");
+		
+		service.addMagazineComment(new String(request.getParameter("comment_content").getBytes("8859_1"), "UTF-8"), user_idx, magazine_idx);
+
+		return "redirect:/magazinedetail?magazine_idx=" + magazine_idx;
 	}
 
 	@Override
