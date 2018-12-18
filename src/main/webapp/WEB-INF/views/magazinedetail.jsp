@@ -32,7 +32,7 @@
 							<h4>${MagazineDetail.magazine_title}</h4>
 						</td>
 						<td class="pull-right">
-							<div class="heart" onclick="addmagazinelike() "></div>
+							<div class="heart" id="like" onclick="addmagazinelike() "></div>
 						</td>
 					</tr>
 				</table>
