@@ -45,7 +45,7 @@ public class PreinspectionCreateController {
 		String user_nickname = session.getAttribute("token").toString().split("/")[2];
 		String preinspection_width = request.getParameter("preinspection_width");
 		String preinspection_height = request.getParameter("preinspection_height");
-		String preinspection_encoded_image = request.getParameter("preinspection_encoded_imgae");
+		String preinspection_encoded_image = request.getParameter("preinspection_encoded_image");
 		String preinspection_picture_path = "";
 
 		Date date = new Date();
@@ -56,8 +56,10 @@ public class PreinspectionCreateController {
 
 		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint").mkdirs();
 		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint/" + sdf.format(date).toString()).mkdirs();
-		for (int i = 0; i < preinspection_encoded_image.split(",").length; i++) {
-			byte[] data = Base64.decodeBase64(preinspection_encoded_image.split(",")[i].getBytes());
+		for (int i = 0; i < preinspection_encoded_image.split("!--!").length; i++) {
+			byte[] data = Base64.decodeBase64(preinspection_encoded_image.split("!--!")[i].getBytes());
+			System.out.println(i + " AAAA " + preinspection_encoded_image.split("!--!")[i]);
+			System.out.println(i + " AAAA " + data.toString());
 			Path destinationFile = Paths.get(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + user_nickname + "/blueprint/" + sdf.format(date).toString(), user_nickname + ".jpg");
 			Files.write(destinationFile, data);
 			preinspection_picture_path += "./public/" + user_nickname + "/blueprint/" + sdf.format(date).toString() + "/" + user_nickname + ".jpg,";

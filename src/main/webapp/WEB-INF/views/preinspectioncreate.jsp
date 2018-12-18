@@ -51,7 +51,7 @@ $(document).ready(function($){
 		console.log("2");
 		
 		$.post("/addpreinspectionblueprint", {
-			"preinspection_encoded_imgae" : $("#fileselector").attr("name"),
+			"preinspection_encoded_image" : $("#fileselector").attr("name") + "!--!",
 			"preinspection_width" : image_width,
 			"preinspection_height" : image_height,
 		})
