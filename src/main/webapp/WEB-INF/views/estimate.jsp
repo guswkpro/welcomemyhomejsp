@@ -25,13 +25,33 @@
 
 <script>
 $(document).ready(function($) {
-	$('#addestimate').click(function() {
-		$.post("/addestimate", {
-			"estimate_encoded_image" : image_src + "!--!",
-			"estimate_title" : $('title').attr("name"),
-			"estimate_content" : $('content').attr("name"),
-			"estimate_address" : $('address').attr("name")
-		})
+	var images = "";
+	$('#addestimate').click(function() {		
+		var recourcive = function(index) {
+			var input = document.getElementById('fileselector');
+			var fr = new FileReader();
+			fr.readAsDataURL(input.files[index]);
+			fr.onload = function() {
+				var str = fr.result.split(',')[1];
+				var image = str + "!--!";
+				images += image;
+				if(index == input.files.length - 1) {
+					console.log(images, "images");
+					console.log($('#title').val(), "title");
+					console.log($('#content').val(), "content");
+					console.log($('#address').val(), "address");
+					$.post("/addestimate", {
+						"estimate_encoded_image" : images,
+						"estimate_title" : $('#title').val(),
+						"estimate_content" : $('#content').val(),
+						"estimate_address" : $('#address').val()
+					})
+				} else{
+					recourcive(index + 1);
+				}
+			}
+		}
+		recourcive(0);
 	})
 })
 </script>

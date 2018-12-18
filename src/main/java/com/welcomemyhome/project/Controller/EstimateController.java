@@ -48,18 +48,18 @@ public class EstimateController {
 		String estimate_encoded_image = request.getParameter("estimate_encoded_image");
 		String estimate_picture_path = "";
 
-		System.out.println(estimate_encoded_image);
-
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
 		String estimate_date = sdf.format(date).toString();
+		
+		System.out.println(estimate_encoded_image.substring(0, 30) + "BBBBBB" + estimate_title);
 
 		File path = new File(".");
 
 		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + session.getAttribute("token").toString().split("/")[2] + "/estimate").mkdirs();
 		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + session.getAttribute("token").toString().split("/")[2] + "/estimate/" + sdf.format(date).toString()).mkdirs();
-		for (int i = 0; i < estimate_encoded_image.split(",")[1].split("!--!").length; i++) {
-			byte[] data = Base64.decodeBase64(estimate_encoded_image.split(",")[1].split("!--!")[i].getBytes());
+		for (int i = 0; i < estimate_encoded_image.split("!--!").length; i++) {
+			byte[] data = Base64.decodeBase64(estimate_encoded_image.split("!--!")[i].getBytes());
 			Path destinationFile = Paths.get(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + session.getAttribute("token").toString().split("/")[2] + "/estimate/" + sdf.format(date).toString(), sdf.format(date).toString() + "_" + i + ".jpg");
 			Files.write(destinationFile, data);
 			estimate_picture_path += "./public/" + session.getAttribute("token").toString().split("/")[2] + "/estimate/" + sdf.format(date).toString() + "/" + sdf.format(date).toString() + "_" + i + ".jpg" + ",";
@@ -69,6 +69,7 @@ public class EstimateController {
 		estimate_date = sdf.format(date).toString();
 
 		estimateService.addEstimate(estimate_title, estimate_picture_path, estimate_content, estimate_date, estimate_address, user_idx);
+		System.out.println("견적요청 등록 성공");
 		return "/estimatelist?offset=0";
 	}
 }
