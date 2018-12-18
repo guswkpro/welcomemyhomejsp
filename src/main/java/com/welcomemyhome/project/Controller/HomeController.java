@@ -34,15 +34,10 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, HttpServletResponse response, HttpSession session) throws Exception {
-		String user_idx = session.getAttribute("token").toString().split("/")[0];
-		if ((user_idx.isEmpty())) {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.print("<script>alert('로그인에 실패하였습니다.'); history.go(-1);</script>");
-			out.flush();
-		}
 		logger.info("home");
 		return "home";
 	}
+	
+	
 
 }
