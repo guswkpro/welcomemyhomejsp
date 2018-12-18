@@ -25,16 +25,13 @@
 
 <script>
 $(document).ready(function() {
-	$("#id_confirm").unbind("click").click(function(e) {
-		e.preventDefault();
-		$("#id_confirm").submit();
-	});
+	$("#id_confirm").click(function(e) {
+		console.log("중복체크 클릭");
+		$.get('/idCheck', function() {
+		});
+	})
 	
 });
-
-function fn_IDcheck() {
-	$("#id_confirm").submit();
-}
 
 </script>
 

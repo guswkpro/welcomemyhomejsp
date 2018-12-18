@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +38,29 @@ public class SignupController {
 		logger.info("Signup");
 
 		return "signup";
+	}
+	
+	@RequestMapping(value = "/idCheck", method = RequestMethod.GET)
+	public void idCheck(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+		System.out.println("idCheck");
+		String id = request.getParameter("user_id");
+		String result = service.getIDCheck(id);
+		System.out.println(result);
+		if(result.equals("1")) {
+			// Already exist
+			System.out.println("result=1");
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('이미 있는 ID입니다.'); </script>");
+			out.flush();
+		} else if(result.equals("2")) {
+			// No exist
+			System.out.println("result=2");
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('사용가능한 ID입니다.'); </script>");
+			out.flush();
+		}
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
