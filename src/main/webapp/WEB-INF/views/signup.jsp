@@ -29,11 +29,13 @@ $(document).ready(function() {
 		e.preventDefault();
 		$("#id_confirm").submit();
 	});
+	
 });
 
 function fn_IDcheck() {
 	$("#id_confirm").submit();
 }
+
 </script>
 
 </head>

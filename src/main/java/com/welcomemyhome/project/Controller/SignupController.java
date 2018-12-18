@@ -1,6 +1,7 @@
 package com.welcomemyhome.project.Controller;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Locale;
@@ -38,7 +39,7 @@ public class SignupController {
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String Signup(HttpServletRequest request, Model model) throws Exception {
+	public String Signup(HttpServletRequest request, Model model, HttpServletResponse response) throws Exception {
 		String id = request.getParameter("user_id");
 		String pw = request.getParameter("user_pw");
 		String nickname = request.getParameter("user_nickname");
@@ -53,6 +54,11 @@ public class SignupController {
 		System.out.println("Current relative path is: " + s);
 		new File(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + nickname).mkdirs();
 		System.out.println(path.getAbsolutePath().substring(0, path.getAbsolutePath().length() - 1) + "welcomemyhomejsp/src/main/webapp/WEB-INF/views/public/" + nickname + "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print("<script>alert('회원가입에 성공하였습니다.'); history.go(-1);</script>");
+		out.flush();
 		
 		return "home";
 	}
