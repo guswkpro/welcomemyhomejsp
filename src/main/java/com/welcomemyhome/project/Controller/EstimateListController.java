@@ -29,19 +29,19 @@ public class EstimateListController {
 
 		logger.info("EstimateList");
 
-		String user_idx = session.getAttribute("token").toString().split("/")[0];
-		String user_auth = session.getAttribute("token").toString().split("/")[1];
-		
-		List<EstimateVO> EstimateList;
-		if(user_auth == "1") { // 사업자
-			EstimateList = service.getEstimateList(offset);
-		} else if(user_auth == "0") { // 사용자
-			EstimateList = service.getEstimateListForUser(offset, user_idx);
-		}
+//		String user_idx = session.getAttribute("token").toString().split("/")[0];
+//		String user_auth = session.getAttribute("token").toString().split("/")[1];
+//		
+//		List<EstimateVO> EstimateList;
+//		if(user_auth == "1") { // 사업자
+		List<EstimateVO> EstimateList = service.getEstimateList(offset);
+//		} else if(user_auth == "0") { // 사용자
+//			EstimateList = service.getEstimateListForUser(offset, user_idx);
+//		}
 
 		
 		model.addAttribute("EstimateList", EstimateList);
 
-		return "estimatelist?offset=0";
+		return "estimatelist";
 	}
 }
