@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko" ng-app="magazinedetail">
 
@@ -22,13 +22,12 @@
 </head>
 
 <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%">
-
 	<div class="card card-body align-middle vh-100" style="width: 60%; border-radius: 20px;">
 		<div class="card-title" style="margin-top: 15px;">
 			<table style="width: 100%">
 				<tr>
 					<td>
-						<h4>${magazinedetail.magazine_title}</h4>
+						<h4>${MagazineDetail.magazine_title}</h4>
 					</td>
 					<td clsaa="pull-right">
 						<div class="heart" ng-click="pushLike()"></div>
@@ -44,12 +43,13 @@
 			</ol>
 			<div class="carousel-inner" role="listbox">
 				<div class="carousel-item active">
-					<img class="d-block w-100" src="${magazine.encodedimage[0]}" alt="slide image">
+					<img class="d-block w-100" src="${Magazine.magazine_picture_path}" alt="slide image">
 				</div>
-				<div class="carousel-item" ng-repeat="m in magazinedetail.encodedimage">
-					<img class="d-block w-100" ng-src="data:image/jpeg;base64,{{m}}" alt="slide image">
-				</div>
-
+				<c:forEach items="${MagazinePicture}" var="magazine">
+					<div class="carousel-item">
+						<img class="d-block w-100" src="${magazine.magazine_picture_path}" alt="slide image">
+					</div>
+				</c:forEach>
 			</div>
 			<a class="carousel-control-prev" href="#Indicators" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">이전</span>
 			</a> <a class="carousel-control-next" href="#Indicators" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">다음</span>
@@ -107,14 +107,14 @@
 			</form>
 		</div>
 	</div>
-	
+
 	<nav class="navbar navbar-expand-lg nav" ng-controller="logincheckCtrl">
 		<div class="nav-logo">
 			<a class="navbar-bran" href='http://127.0.0.1:8080/'>WMH</a>
 		</div>
 		<div class="collapse navbar-collapse nav-menu">
 			<ul class="navbar-nav mr-auto nav-ul">
-				<li class="nav-item nav-li-magazine"><a class="nav-a-text3" href='http://127.0.0.1:8080/magazine'>매거진</a></li>
+				<li class="nav-item nav-li-magazine"><a class="nav-a-text3" href='http://127.0.0.1:8080/magazine?offset=0'>매거진</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4" href='http://127.0.0.1:8080/talk'>커뮤니티</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4" href='http://127.0.0.1:8080/'>사전전검</a></li>
 				<li class="nav-item nav-li"><a class="nav-a-text4" href='http://127.0.0.1:8080/estimate' ng-click="checkauth()">견적요청</a></li>

@@ -50,7 +50,6 @@ public class MagazineServiceImpl implements MagazineService {
 		} else {
 			magazineList.get(0).setMagazine_comment_check(0);
 		}
-
 		if (dao.getMagazineLikeCheck(user_idx, magazineList.get(0).getMagazine_idx() + "").size() != 0) {
 			magazineList.get(0).setMagazine_like_check(1);
 		} else {

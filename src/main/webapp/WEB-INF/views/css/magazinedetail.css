@@ -1,207 +1,203 @@
 @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
 
-html {
-	height: auto;
-}
+	html {
+		height: auto;
+	}
+	.button {
+	    margin : 2px;
+	}
 
-.button {
-	margin: 2px;
-}
+	body {
+	    width:100%;
+	    height: auto;
+         margin-top:20px;
+	    margin: 0;
+  		padding-top: 0px;
+  		padding-bottom: 40px;
+  		font-family: "Nanum Gothic", arial, helvetica, sans-serif;
+  		background-repeat: no-repeat;
+  		background:linear-gradient(to bottom right );
+	}
 
-body {
-	width: 100%;
-	height: auto;
-	margin-top: 20px;
-	margin: 0;
-	padding-top: 200px;
-	padding-bottom: 40px;
-	font-family: "Nanum Gothic", arial, helvetica, sans-serif;
-	background-repeat: no-repeat;
-	background: linear-gradient(to bottom right);
-}
+    .card {
+        margin: 0 auto; /* Added */
+        height: auto;
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+				margin-top: 6%;
+	}
 
-.card {
-	margin: 0 auto; /* Added */
-	height: auto;
-	float: none; /* Added */
-	margin-bottom: 10px; /* Added */
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
-		rgba(0, 0, 0, 0.19);
-	margin-top: 10%;
-}
+  .card-userReact{
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin:  0 auto;
+    margin-top: 20px;
+  }
 
-.card-userReact {
-	width: 100%;
-	height: auto;
-	position: relative;
-	margin: 0 auto;
-	margin-top: 20px;
-}
 
 .heart {
-	width: 100px;
-	height: 100px;
-	position: absolute;
-	left: 870px;
-	top: 45px;
-	transform: translate(-50%, -50%);
-	background: url(../img/heart.png) no-repeat;
-	cursor: pointer;
-}
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 870px;
+    top: 45px;
+    transform: translate(-50%, -50%);
+    background: url(../image/heart.png) no-repeat;
+    cursor: pointer;
+  }
+  .heart-blast {
+    background-position: -2800px 0;
+    transition: background 1s steps(28);
+  }
+  .heart-end {
+    background-position: -2800px 0;
+    transition: background 0s step-end;
+  }
+  .heart-start {
+    background-position: -2800px 0;
+    transition: background 0s step-start;
+  }
+	.newcommentheader{
+		height: 10%;
+		position: relative;
+	}
+	.newcommentbody{
+		position: relative;
+	}
 
-.heart-blast {
-	background-position: -2800px 0;
-	transition: background 1s steps(28);
-}
+  .newcomment {
+    height: 100%;
+    width:50%;
+    position: relative;
+  }
 
-.heart-end {
-	background-position: -2800px 0;
-	transition: background 0s step-end;
-}
+  .content-item {
+      width: 100%;
+      height: auto;
+      padding:0 0;
+  	background-color:#FFFFFF;
+  }
 
-.heart-start {
-	background-position: -2800px 0;
-	transition: background 0s step-start;
-}
+  .content-item.grey {
+  	background-color:#F0F0F0;
+  	padding:50px 0;
+  	height:100%;
+  }
 
-.newcommentheader {
-	height: 10%;
-	position: relative;
-}
+  .content-item h2 {
+  	font-weight:700;
+  	font-size:35px;
+  	line-height:45px;
+  	text-transform:uppercase;
+  	margin:20px 0;
+  }
 
-.newcommentbody {
-	position: relative;
-}
+  .content-item h3 {
+  	font-weight:400;
+  	font-size:20px;
+  	color:#555555;
+  	margin:10px 0 15px;
+  	padding:0;
+  }
 
-.newcomment {
-	height: 100%;
-	width: 50%;
-	position: relative;
-}
+  .content-headline {
+  	height:1px;
+  	text-align:center;
+  	margin:20px 0 70px;
+  }
 
-.content-item {
-	width: 100%;
-	height: auto;
-	padding: 0 0;
-	background-color: #FFFFFF;
-}
+  .content-headline h2 {
+  	background-color:#FFFFFF;
+  	display:inline-block;
+  	margin:-20px auto 0;
+  	padding:0 20px;
+  }
 
-.content-item.grey {
-	background-color: #F0F0F0;
-	padding: 50px 0;
-	height: 100%;
-}
+  .grey .content-headline h2 {
+  	background-color:#F0F0F0;
+  }
 
-.content-item h2 {
-	font-weight: 700;
-	font-size: 35px;
-	line-height: 45px;
-	text-transform: uppercase;
-	margin: 20px 0;
-}
+  .content-headline h3 {
+  	font-size:14px;
+  	color:#AAAAAA;
+  	display:block;
+  }
 
-.content-item h3 {
-	font-weight: 400;
-	font-size: 20px;
-	color: #555555;
-	margin: 10px 0 15px;
-	padding: 0;
-}
 
-.content-headline {
-	height: 1px;
-	text-align: center;
-	margin: 20px 0 70px;
-}
+  #comments {
+      box-shadow: 0 -1px 6px 1px rgba(0,0,0,0.1);
+  	background-color:#FFFFFF;
+  }
 
-.content-headline h2 {
-	background-color: #FFFFFF;
-	display: inline-block;
-	margin: -20px auto 0;
-	padding: 0 20px;
-}
+  #comments form {
+  	margin-bottom:30px;
+  }
 
-.grey .content-headline h2 {
-	background-color: #F0F0F0;
-}
+  #comments .btn {
+  	margin-top:7px;
+  }
 
-.content-headline h3 {
-	font-size: 14px;
-	color: #AAAAAA;
-	display: block;
-}
+  #comments form fieldset {
+  	clear:both;
+  }
 
-#comments {
-	box-shadow: 0 -1px 6px 1px rgba(0, 0, 0, 0.1);
-	background-color: #FFFFFF;
-}
+  #comments form textarea {
+  	height:200px;
+  }
 
-#comments form {
-	margin-bottom: 30px;
-}
+  #comments .media {
+  	border-top:1px dashed #DDDDDD;
+  	padding:20px 0;
+  	margin:0;
+  }
 
-#comments .btn {
-	margin-top: 7px;
-}
 
-#comments form fieldset {
-	clear: both;
-}
+  #comments .media > .pull-left {
+      margin-right:20px;
+  }
 
-#comments form textarea {
-	height: 200px;
-}
+  #comments .media img {
+  	max-width:100px;
+  }
 
-#comments .media {
-	border-top: 1px dashed #DDDDDD;
-	padding: 20px 0;
-	margin: 0;
-}
+  #comments .media h4 {
+  	margin:0 0 10px;
+  }
 
-#comments .media>.pull-left {
-	margin-right: 20px;
-}
+  #comments .media h4 span {
+  	font-size:14px;
+  	float:right;
+  	color:#999999;
+  }
 
-#comments .media img {
-	max-width: 100px;
-}
+  #comments .media p {
+  	margin-bottom:15px;
+  	text-align:justify;
+  }
 
-#comments .media h4 {
-	margin: 0 0 10px;
-}
+  #comments .media-detail {
+  	margin:0;
+  }
 
-#comments .media h4 span {
-	font-size: 14px;
-	float: right;
-	color: #999999;
-}
+  #comments .media-detail li {
+  	color:#AAAAAA;
+  	font-size:12px;
+  	padding-right: 10px;
+  	font-weight:600;
+  }
 
-#comments .media p {
-	margin-bottom: 15px;
-	text-align: justify;
-}
+  #comments .media-detail a:hover {
+  	text-decoration:underline;
+  }
 
-#comments .media-detail {
-	margin: 0;
-}
+  #comments .media-detail li:last-child {
+  	padding-right:0;
+  }
 
-#comments .media-detail li {
-	color: #AAAAAA;
-	font-size: 12px;
-	padding-right: 10px;
-	font-weight: 600;
-}
-
-#comments .media-detail a:hover {
-	text-decoration: underline;
-}
-
-#comments .media-detail li:last-child {
-	padding-right: 0;
-}
-
-#comments .media-detail li i {
-	color: #666666;
-	font-size: 15px;
-	margin-right: 10px;
-}
+  #comments .media-detail li i {
+  	color:#666666;
+  	font-size:15px;
+  	margin-right:10px;
+  }

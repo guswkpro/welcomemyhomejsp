@@ -30,7 +30,7 @@
 			<c:forEach items="${MagazineList}" var="magazine">
 				<div class="col-lg-4 col-sm-6 portfolio-item">
 					<div class="card" style="height: 320px; width: 348px; float: left;">
-						<img class="card-img-top" src="${magazine.magazine_thumbnail_path}" style="height: 220px; width: 100%;" onclick="location.href='http://127.0.0.1:8080/magazinedetail?offset=0'">
+						<img class="card-img-top" src="${magazine.magazine_thumbnail_path}" style="height: 220px; width: 100%;" onclick="location.href='http://127.0.0.1:8080/magazinedetail?magazine_idx=${magazine.magazine_idx}'">
 						<div class="card-body list-body">
 							<table style="width: 100%;">
 								<tr>

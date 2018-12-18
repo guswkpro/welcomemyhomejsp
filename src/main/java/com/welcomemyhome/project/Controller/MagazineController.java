@@ -33,8 +33,6 @@ public class MagazineController implements ServletContextAware {
 
 		logger.info("Magazine");
 
-		System.out.println(servletContext.getRealPath("WEB-INF/views/public/") + "ASDFASDFASDFASDFASDF");
-
 		List<MagazineVO> magazineList;
 		System.out.println(session.getAttribute("token"));
 		if (session.getAttribute("token") == null) {
@@ -49,11 +47,26 @@ public class MagazineController implements ServletContextAware {
 	}
 
 	@RequestMapping(value = "/magazinedetail", method = RequestMethod.GET)
-	public String Magazinedetail(Locale locale, Model model, @RequestParam int offset, HttpSession session)
+	public String Magazinedetail(Locale locale, Model model, @RequestParam int magazine_idx, HttpSession session)
 			throws Exception {
 
 		logger.info("Magazinedetail");
 
+		String user_idx = session.getAttribute("token").toString().split("/")[0];
+
+		List<MagazineVO> magazineList;
+		if (session.getAttribute("token") == null) {
+			magazineList = service.getMagazineDetail(user_idx, magazine_idx + "");
+		} else {
+			magazineList = service.getMagazineDetail(user_idx, magazine_idx + "");
+		}
+		
+		System.out.println(magazineList.get(0).getMagazine_title());
+		System.out.println(magazineList.get(0).getMagazine_picture_path());
+		System.out.println(magazineList.get(0).getMagazine_hit_count());
+		
+		model.addAttribute("MagazineDetail", magazineList.get(0));
+		model.addAttribute("MagazinePicture", magazineList);
 		return "magazinedetail";
 	}
 

@@ -90,7 +90,7 @@ public class MagazineDAOImpl implements MagazineDAO {
 	public void editMagazineHitCount(String magazine_idx) throws Exception {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("magazine_idx", magazine_idx);
-		sqlSession.selectList(Namespace + ".editHitCount", parameters);
+		sqlSession.selectList(Namespace + ".editMagazineHitCount", parameters);
 	}
 
 	@Override
