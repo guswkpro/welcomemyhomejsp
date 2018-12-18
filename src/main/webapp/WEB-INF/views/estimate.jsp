@@ -22,6 +22,20 @@
 <link rel="stylesheet" type="text/css" href="css/estimate.css" />
 
 <title>놀러와 마이홈</title>
+
+<script>
+$(document).ready(function($) {
+	$('#addestimate').click(function() {
+		$.post("/addestimate", {
+			"estimate_encoded_image" : image_src + "!--!",
+			"estimate_title" : $('title').attr("name"),
+			"estimate_content" : $('content').attr("name"),
+			"estimate_address" : $('address').attr("name")
+		})
+	})
+})
+</script>
+
 </head>
 
 <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0"
@@ -32,12 +46,12 @@
 				<form>
 					<tr>
 						<th>제목</th>
-						<td><input type="text" name="estimate_title" placeholder="제목을 입력하세요. "
+						<td><input type="text" name="estimate_title" placeholder="제목을 입력하세요. "  id="title"
 							class="form-control"/></td>
 					</tr>
 					<tr>
 						<th>주소</th>
-						<td><input type="text" name="address" placeholder="주소를 입력하세요. "
+						<td><input type="text" name="estimate_address" placeholder="주소를 입력하세요. " id="address"
 							class="form-control"/></td>
 					</tr>
 					<tr>
@@ -47,13 +61,13 @@
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td><textarea cols="10" rows="10" placeholder="내용을 입력하세요."
+						<td><textarea cols="10" rows="10" placeholder="내용을 입력하세요." id="content"
 								name="estimate_content" class="form-control"></textarea></td>
 					</tr>
 					<tr>
 						<td colspan="2">
 							<input type="button" value="취소" class="estimate-float-right" onclick="location.href = 'http://127.0.0.1:8080/estimatelist?offset=0'"/> 
-							<input type="button" value="등록" class="estimate-float-right" onclick="location.href = 'http://127.0.0.1:8080/estimatelist?offset=0'"/>
+							<input type="button" id="addestimate" value="등록" class="estimate-float-right"/>
 						</td>
 					</tr>
 				</form>
