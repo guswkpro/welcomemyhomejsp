@@ -1,6 +1,7 @@
 package com.welcomemyhome.project.Controller;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -10,6 +11,7 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.binary.Base64;
@@ -39,8 +41,7 @@ public class PreinspectionCreateController {
 	}
 
 	@RequestMapping(value = "/addpreinspectionblueprint", method = RequestMethod.POST)
-	@ResponseBody
-	public String addEstimateAnswer(HttpServletRequest request, HttpSession session) throws Exception {
+	public String addEstimateAnswer(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {
 		String user_idx = session.getAttribute("token").toString().split("/")[0];
 		String user_nickname = session.getAttribute("token").toString().split("/")[2];
 		String preinspection_width = request.getParameter("preinspection_width");
@@ -69,6 +70,12 @@ public class PreinspectionCreateController {
 		preinspection_date = sdf.format(date).toString();
 
 		preinspectionService.addPreinspectionBlueprint(preinspection_date, preinspection_picture_path, preinspection_width, preinspection_height, user_idx);
+		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print("<script>alert('도면 등록에 성공하였습니다.'); history.go(-1);</script>");
+		out.flush();
+		
 		return "/preinspection";
 	}
 }
