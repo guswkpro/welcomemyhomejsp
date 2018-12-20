@@ -1,5 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ page import = "estimate.estimateDAO" %>
+<%@ page import = "java.io.PrintWriter" %>
+<%@ page import = "com.oreilly.servlet.MultipartRequest" %>
+<%@ page import = "com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
+<%@ page import = "java.io.*" %>
+
+    <jsp:useBean id="post" class="estimate.estimateManager" scope="page" />
+    <jsp:setProperty name="post" property="estimateTitle" />
+    <jsp:setProperty name="post" property="estimateContent" />
+    <jsp:setProperty name="post" property="estimatePicture" />
+    
 <html>
 <head>
 <meta charset="utf-8">
@@ -18,46 +30,70 @@
 <link rel="stylesheet" type="text/css" href="css/estimate.css" />
 
 <title>놀러와 마이홈</title>
-
-<script>
-	$(document).ready(function($) {
-		var images = "";
-		$('#addestimate').click(function() {
-			var recourcive = function(index) {
-				var input = document.getElementById('fileselector');
-				var fr = new FileReader();
-				fr.readAsDataURL(input.files[index]);
-				fr.onload = function() {
-					var str = fr.result.split(',')[1];
-					var image = str + "!--!";
-					images += image;
-					if (index == input.files.length - 1) {
-						console.log(images, "images");
-						console.log($('#title').val(), "title");
-						console.log($('#content').val(), "content");
-						console.log($('#address').val(), "address");
-						$.post("/addestimate", {
-							"estimate_encoded_image" : images,
-							"estimate_title" : $('#title').val(),
-							"estimate_content" : $('#content').val(),
-							"estimate_address" : $('#address').val()
-						}, function(result) {
-							console.log(result);
-							$.jQueryAlert(result);
-						})
-					} else {
-						recourcive(index + 1);
-					}
-				}
-			}
-			recourcive(0);
-		})
-	})
-</script>
-
 </head>
 
 <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%">
+	<%
+	/* 파일 업로드 관련 */
+	int maxSize = 1024*1024*10;
+	String realFolder = ""; /* 저장 경로 */
+	String uploadFile = ""; /* 파일명 */
+	String savePath = request.getServletContext().getRealPath("file");
+	System.out.println(savePath);
+	File isDir = new File(savePath);
+	if(!isDir.isDirectory()){
+		System.out.println("No directory");
+		isDir.mkdir();
+	}
+	String encoding = "euc-kr";		
+	MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, encoding, new DefaultFileRenamePolicy());
+	uploadFile = multi.getFilesystemName("postFile");
+	
+	String originFile = multi.getOriginalFileName("postFile");
+	String sysFilename = multi.getFilesystemName("postFile"); /* 파일 이름 중복시 실제 저장될 이름 */
+	/* System.out.println(sysFilename); */
+	File file = new File(savePath + uploadFile);
+	
+	/*======================================================== */
+			
+		String userID = null;
+		String estimateTitle = multi.getParameter("estimate_title");
+		String estimateContent = multi.getParameter("estimate_content");
+		/* writeForm.jsp 의 입력 form 을 건드려서 multi식으로 받기로함 */
+		
+		if(session.getAttribute("id") != null){
+			userID = (String) session.getAttribute("id");
+		}
+		if (estimateTitle == null || estimateContent == null){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('입력이 안 된 사항이 있습니다.')");
+			script.println("history.back()");
+			script.println("</script>");
+		}
+		else
+		{
+			EstimateService estimateService = new EstimateService();
+			int result = estimateService.write(estimateTitle, userID, estimateContent, sysFilename);
+			if(result == -1)
+			{
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("alert('글쓰기에 실패했습니다.')");
+				script.println("history.back()");
+				script.println("</script>");
+			}
+			else
+			{
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("alert('글쓰기 완료')");
+				script.println("<script>");
+				response.sendRedirect("main.jsp"); 
+			}
+		}
+		
+	%>
 	<div class="container estimate-div">
 		<table class="table table-bordered">
 			<tbody>
